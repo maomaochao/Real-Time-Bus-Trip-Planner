@@ -1,0 +1,41 @@
+.post-content {
+    background: none repeat scroll 0 0 #FFffff;
+    opacity: 0.9;
+    margin: 0 auto;
+    margin-top: -70px;
+    text-align:center
+    position: relative;
+    width:100%;
+
+    
+}
+
+.post-content1 {
+    background: none repeat scroll 0 0 #FFffff;
+    opacity: 0.9;
+    margin: 0 auto;
+    margin-top: -30px;
+    text-align:center
+    position: relative;
+    width:100%;
+	color:#515151
+
+    
+}
+
+.thumbnail {
+    margin:0 auto;
+    text-align:center;
+    opacity: 0.8;
+}
+.img-thumbnail {
+	opacity: 0.8;
+}
+
+.wrapper {
+    text-align:center;
+}
+
+
+
+   
