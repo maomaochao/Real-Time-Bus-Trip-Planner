@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.genericdao.RollbackException;
 
@@ -30,12 +31,14 @@ public class LoginAction extends Action {
 	public String perform(HttpServletRequest request) throws IOException,
 			ServletException {
 		try {
+			HttpSession session = request.getSession();
+		     
 			// TODO Auto-generated method stub
 			String userid = (String) request.getParameter("userid");
 			String username = (String) request.getParameter("username");
 
-			System.out.println(userid);
-			System.out.println(username);
+			System.out.println("userid"+userid);
+			System.out.println("username"+username);
 			// Look up the user
 			User user;
 
@@ -49,7 +52,7 @@ public class LoginAction extends Action {
 				user.setName(username);
 				userDAO.create(user);
 			}
-
+			session.setAttribute("user",user);
 			
 		} catch (RollbackException e) {
 			// TODO Auto-generated catch block

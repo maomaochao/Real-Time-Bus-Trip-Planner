@@ -93,9 +93,11 @@
           },
           type: 'POST'
       });
-      
+      document.location.href="yelp.do";
+
+    //  location.reload();
     });
-  //  document.location.href="yelp.do";
+   
    // document.location.href="login.do?userid="+response.id+"&username="+response.name;
    
   

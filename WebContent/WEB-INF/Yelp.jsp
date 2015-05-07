@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<p> welcome ${user.getName()}</p> 
 <c:if test="${not empty yelps}">
 <div class="panel panel-danger">
 <div class="panel-heading">
