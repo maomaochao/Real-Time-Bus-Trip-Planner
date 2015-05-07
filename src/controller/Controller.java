@@ -34,6 +34,7 @@ public class Controller extends HttpServlet{
 		Action.add(new WelcomAction());
 		Action.add(new getVerifyAction(model));
 		Action.add(new YelpAction());
+		Action.add(new LoginAction());
 
 
 	}
@@ -56,8 +57,9 @@ public class Controller extends HttpServlet{
 	private String performTheAction(HttpServletRequest req) throws IOException, ServletException {
 		//HttpSession session     = req.getSession(true);
         String      servletPath = req.getServletPath();
-        String      action = getActionName(servletPath);
 
+        String      action = getActionName(servletPath);
+         System.out.println("action:  ++ "+action);
         if (action.equals("register.do") || action.equals("login.do")) {
         	// Allow these actions without logging in
 			return Action.perform(action,req);

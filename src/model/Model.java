@@ -19,7 +19,7 @@ public class Model {
 			String jdbcURL      = config.getInitParameter("jdbcURL");
 			ConnectionPool cp 	= new ConnectionPool(jdbcDrive, jdbcURL);
 			
-			String userTbl = "team8_user";
+			String userTbl = "user";
 			String commentTbl = "team8_comment";
 			String locationtbl= "team8_location";
 			String visittbl= "team8_visit";
@@ -34,7 +34,7 @@ public class Model {
 		} 
 	}
 	
-	public UserDAO getEmployeeDAO()  { return userDAO; }
+	public UserDAO getUserDAO()  { return userDAO; }
 	public CommentDAO getCustomerDAO()  { return commentDAO; }
 	public LocationDAO getLocationDAO() { return locationDAO; }
 	public VisitDAO getVisitDAO() { return visitDAO; }
