@@ -25,9 +25,6 @@ public class LoginAction extends Action {
 		userDAO = model.getUserDAO();
 	}
 
-	public LoginAction() {
-		
-	}
 
 	@Override
 	public String perform(HttpServletRequest request) throws IOException,
