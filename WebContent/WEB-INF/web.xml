@@ -20,7 +20,7 @@
         </init-param>
         <init-param>
           <param-name>    jdbcURL                 </param-name> 
-	      <param-value>   jdbc:mysql:///test   </param-value>
+	      <param-value>   jdbc:mysql://ec2-52-6-179-144.compute-1.amazonaws.com:3306/test   </param-value>
         </init-param>       
     </servlet>
     
