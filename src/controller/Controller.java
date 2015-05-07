@@ -33,6 +33,7 @@ public class Controller extends HttpServlet{
 		Action.add(new SigninAction(model));
 		Action.add(new WelcomAction());
 		Action.add(new getVerifyAction(model));
+		Action.add(new YelpAction());
 
 
 	}
