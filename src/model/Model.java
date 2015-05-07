@@ -19,7 +19,7 @@ public class Model {
 			String jdbcURL      = config.getInitParameter("jdbcURL");
 			ConnectionPool cp 	= new ConnectionPool(jdbcDrive, jdbcURL);
 			
-			String userTbl = "user";
+			String userTbl = "team15_user";
 			String commentTbl = "team8_comment";
 			String locationtbl= "team8_location";
 			String visittbl= "team8_visit";
