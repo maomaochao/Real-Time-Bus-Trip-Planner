@@ -1,3 +1,7 @@
+/API/
+/auth/
 /controller/
-/model/
 /databean/
+/formbean/
+/model/
+/twitterAPI/
