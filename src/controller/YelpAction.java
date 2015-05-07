@@ -58,6 +58,6 @@ public class YelpAction extends Action{
 	    System.out.println("hehe");
 	    request.setAttribute("yelps", yelps);
 	    System.out.println("request set");
-	return "yelp.jsp";
+	    return "Yelp.jsp";
 	}
 }
