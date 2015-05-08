@@ -3,17 +3,51 @@
 <head>
 	<meta charset = "utf-8" />
 	<title>List App</title>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="map.js"> </script>
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<meta name="viewport" content="width=device-width,
-	  initial-scale=1, maximum-scale=1" />
-    	<style>
-	      img.fullscreen {max-height:100%; max-width" 100%;}
-        #map-page, #map-canvas { width: 100%; height: 100%; padding: 0; }
-	    </style>
+	
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<style>
+    img.fullscreen {max-height:100%; max-width" 100%;}
+    #map-page, #map-canvas { width: 100%; height: 100%; padding: 0; }
+  </style>
+  <script type="text/javascript">
+    function calcRoute() {
+              var directionsService = new google.maps.DirectionsService();
+              var start = "1510 Shady Avenue, Pittsburgh, PA";
+              var end = "Carnegie Mellon University";
+              var request = {
+                              origin: start,
+                              destination: end,
+                              travelMode: google.maps.TravelMode.TRANSIT
+                              };
+              directionsService.route(request, function(response, status) {
+                  if (status == google.maps.DirectionsStatus.OK) {
+                      var steps = response.routes[0].legs[0].steps;
+                      for (var i = 0; i < steps.length; i++) {
+                          if (steps[i].transit === undefined) continue;
+                          //alert(JSON.stringify(steps[i], null, 4));
+                          var lineName = steps[i].transit.line.short_name;
+                          if (lineName === undefined) continue;
+                          var instructions = steps[i].instructions;
+                          var content = "<div data-role='collapsible' id='routes" + i + "'><h3>"  + lineName + "</h3><p>" + instructions + "</p></div>";
+                      $("#routes").append( content ).collapsibleset('refresh');
+                      };
+                  }
+              });
+          }
+  // window.onload = calcRoute;
+  </script>
 </head>
+
 <body>
 <div data-role="page" id="main">
 <header data-role="header">
@@ -67,46 +101,21 @@
 <div data-role="header" data-theme="b">
   <h1>Search for Route</h1>
   </div>
-<form method="post" action="demoform.asp">
+<form method="post" action="#">
       <div data-role="fieldcontain">
         <label for="lname">From: </label>
         <input type="text" name="lname" id="lname" placeholder="Your Location">
         <label for="fname">To  : </label>
         <input type="text" name="fname" id="fname">
       </div><p style="text-align: center;">
-      <input type="submit" data-inline="true" value="Search"></p>
 </form>
+<button class="ui-btn" onclick="calcRoute()">Search</button>
 <br>
-<table data-role="table" class="ui-responsive">
-      <thead>
-        <tr>
-          <th>RouteID</th>
-          <th>RouteName</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Next Arrival</th>
-          <th>Minutes left</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>61A</td>
-          <td>4742 Centre Avenue</td>
-          <td>CMU</td>
-          <td>2:55 PM</td>
-          <td>2 min</td>
-        </tr>
-	<tr>
-          <td>2</td>
-          <td>61C</td>
-          <td>4742 Centre Avenue</td>
-          <td>CMU</td>
-          <td>3:12 PM</td>
-          <td>19 min</td>
-        </tr>
-      </tbody>
-    </table>
+
+
+<div data-role="collapsible-set" data-content-theme="d" id="routes">
+</div>
+
 <br>
 <br>
   <ul data-role="listview">
