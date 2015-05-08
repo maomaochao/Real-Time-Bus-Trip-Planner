@@ -111,7 +111,7 @@
 <br>
   <ul data-role="listview">
     <li>
-      <a href="#bus3">
+      <a href="yelp.do">
       <h1>Where to Eat</h1>
       <img src="img/fork.png" alt="bus3" />
       <p>Finding places to eat?</p>
