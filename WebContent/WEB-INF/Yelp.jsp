@@ -39,15 +39,16 @@
 					<c:forEach var="yelp" items="${yelps}">
 						<li><a href="routes.html"> <img src="${yelp.photo}"
 								style="padding-left: 20; padding-top: 20;">
-								<div id="textbox"> 	
+								<div> 	
 								<h2 style="float:left">${yelp.name}</h2>
 								<h2 style="float:right">15min</h2>
-								
+		                       
 								</div>
-								<br>
-								<br>
-								<p>1607 Penn Ave Pittsburgh, PA 15222</p>
-								<p>5:06 PM from Forbes Ave at Morewood Ave FS (Carnegie Mellon)</p>
+								 <div style="clear:both"> </div>
+							  
+							
+								<p style="float:left">1607 Penn Ave Pittsburgh, PA 15222</p>
+								<p style="float:left">5:06 PM from Forbes Ave at Morewood Ave FS (Carnegie Mellon)</p>
 
 
 						</a></li>
