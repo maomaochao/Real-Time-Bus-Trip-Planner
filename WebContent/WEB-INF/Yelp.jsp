@@ -19,7 +19,7 @@
 <!-- Include the jQuery Mobile library -->
 <script
 	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<title>Insert title here</title>
+<title>Trip Planner</title>
 </head>
 <body>
 	<div data-role="page">
@@ -27,7 +27,7 @@
 		<div data-role="header">
 			<a href="#" class="ui-btn ui-icon-home ui-btn-icon-left"
 				data-rel="back">Back</a>
-			<h1>Bus Triper</h1>
+			<h1>Bus Trip Planner</h1>
 		</div>
 
 		<div>
@@ -46,8 +46,9 @@
 								</div>
 								 <div style="clear:both"> </div>
 							  
-							
 								<p style="float:left">1607 Penn Ave Pittsburgh, PA 15222</p>
+								 <div style="clear:both"> </div>
+							  
 								<p style="float:left">5:06 PM from Forbes Ave at Morewood Ave FS (Carnegie Mellon)</p>
 
 
