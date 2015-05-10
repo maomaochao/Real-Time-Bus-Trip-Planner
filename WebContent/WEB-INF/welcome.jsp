@@ -21,40 +21,61 @@
   </style>
   <script type="text/javascript">
     function calcRoute() {
-              var directionsService = new google.maps.DirectionsService();
-              //var start = "1510 Shady Avenue, Pittsburgh, PA";
-              //var end = "Carnegie Mellon University";
-              var start = document.getElementById("lname").value;
-              var end = document.getElementById("fname").value;
-              var request = {
-                              origin: start,
-                              destination: end,
-                              travelMode: google.maps.TravelMode.TRANSIT
-                              };
-              directionsService.route(request, function(response, status) {
-                  if (status == google.maps.DirectionsStatus.OK) {
-                      var steps = response.routes[0].legs[0].steps;
-                      var time = response.routes[0].legs[0].duration.value;
-                      var stepCount = steps.length;
-                      var validStep = 0;
-                      for (var i = 0; i < stepCount; i++) {
-                          if (steps[i].transit === undefined) continue;
-                          //alert(JSON.stringify(steps[i], null, 4));
-                          validStep++;
-                          var lineName = steps[i].transit.line.short_name;
-                          if (lineName === undefined) continue;
-                          var instructions = steps[i].instructions;
-                          var content = "<div data-role='collapsible' id='routes" + i + "'><h3>"  + lineName + "</h3><p>" + instructions + "</p></div>";
-
-                      var summary = "<p>There are " + validStep + " steps. The trip takes " + Math.floor(time / 60) + " minutes. </p>";
-                      $("#routes").empty();
-                      $("#routes").prepend( summary );
-                      $("#routes").append( content ).collapsibleset('refresh');
+      var directionsService = new google.maps.DirectionsService();
+      //var start = "1510 Shady Avenue, Pittsburgh, PA";
+      //var end = "Carnegie Mellon University";
+      var start = document.getElementById("lname").value;
+      var end = document.getElementById("fname").value;
+      var request = {
+                      origin: start,
+                      destination: end,
+                      travelMode: google.maps.TravelMode.TRANSIT
                       };
-                  }
-              });
+      directionsService.route(request, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+              var steps = response.routes[0].legs[0].steps;
+              var time = response.routes[0].legs[0].duration.value;
+              var stepCount = steps.length;
+              var validStep = 0;
+              for (var i = 0; i < stepCount; i++) {
+                  if (steps[i].transit === undefined) continue;
+                  //alert(JSON.stringify(steps[i], null, 4));
+                  validStep++;
+                  var lineName = steps[i].transit.line.short_name;
+                  if (lineName === undefined) continue;
+                  var instructions = steps[i].instructions;
+                  var content = "<div data-role='collapsible' id='routes" + i + "'><h3>"  + lineName + "</h3><p>" + instructions + "</p></div>";
+
+              var summary = "<p>There are " + validStep + " steps. The trip takes " + Math.floor(time / 60) + " minutes. </p>";
+              $("#routes").empty();
+              $("#routes").prepend( summary );
+              $("#routes").append( content ).collapsibleset('refresh');
+              };
           }
+      });
+    }
   // window.onload = calcRoute;
+  </script>
+  <script type="text/javascript">
+function getCoordinates() {    
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+      alert("Geolocation is not supported by this browser.");
+  }
+   
+}
+
+
+  function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    var latlng = new google.maps.LatLng(lat, lng);  
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      document.getElementById("lname").value = results[1].formatted_address;
+    });
+  }
   </script>
 </head>
 
@@ -111,10 +132,11 @@
 <div data-role="header" data-theme="b">
   <h1>Search for Route</h1>
   </div>
+  <button class="ui-btn" onclick="getCoordinates()">Get Current Location</button>
 <form method="post" action="#">
       <div data-role="fieldcontain">
         <label for="lname">From: </label>
-        <input type="text" name="lname" id="lname" placeholder="Your Location">
+        <input type="text" name="lname" id="lname" placeholder="Your Location"> 
         <label for="fname">To  : </label>
         <input type="text" name="fname" id="fname">
       </div><p style="text-align: center;">
