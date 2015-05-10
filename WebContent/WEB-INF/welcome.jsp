@@ -22,8 +22,10 @@
   <script type="text/javascript">
     function calcRoute() {
               var directionsService = new google.maps.DirectionsService();
-              var start = "1510 Shady Avenue, Pittsburgh, PA";
-              var end = "Carnegie Mellon University";
+              //var start = "1510 Shady Avenue, Pittsburgh, PA";
+              //var end = "Carnegie Mellon University";
+              var start = document.getElementById("lname").value;
+              var end = document.getElementById("fname").value;
               var request = {
                               origin: start,
                               destination: end,
