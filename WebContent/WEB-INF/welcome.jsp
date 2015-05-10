@@ -34,14 +34,21 @@
               directionsService.route(request, function(response, status) {
                   if (status == google.maps.DirectionsStatus.OK) {
                       var steps = response.routes[0].legs[0].steps;
-                      for (var i = 0; i < steps.length; i++) {
+                      var time = response.routes[0].legs[0].duration.value;
+                      var stepCount = steps.length;
+                      var validStep = 0;
+                      for (var i = 0; i < stepCount; i++) {
                           if (steps[i].transit === undefined) continue;
                           //alert(JSON.stringify(steps[i], null, 4));
+                          validStep++;
                           var lineName = steps[i].transit.line.short_name;
                           if (lineName === undefined) continue;
                           var instructions = steps[i].instructions;
                           var content = "<div data-role='collapsible' id='routes" + i + "'><h3>"  + lineName + "</h3><p>" + instructions + "</p></div>";
+
+                      var summary = "<p>There are " + validStep + " steps. The trip takes " + Math.floor(time / 60) + " minutes. </p>";
                       $("#routes").empty();
+                      $("#routes").prepend( summary );
                       $("#routes").append( content ).collapsibleset('refresh');
                       };
                   }
