@@ -39,6 +39,7 @@
                           if (lineName === undefined) continue;
                           var instructions = steps[i].instructions;
                           var content = "<div data-role='collapsible' id='routes" + i + "'><h3>"  + lineName + "</h3><p>" + instructions + "</p></div>";
+                      $("#routes").empty();
                       $("#routes").append( content ).collapsibleset('refresh');
                       };
                   }
