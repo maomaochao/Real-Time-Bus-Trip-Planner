@@ -31,7 +31,7 @@ public class YelpAction extends Action{
 
 		YelpAPI yelpApi = new YelpAPI();
 		String searchResponseJSON =
-		        yelpApi.searchForBusinessesByLocation("dinner", "San Francisco, CA");
+		        yelpApi.searchForBusinessesByLocation("", "San Francisco, CA", "education");
 		
 		 JSONParser parser = new JSONParser();
 		 JSONObject response = null;
@@ -48,9 +48,14 @@ public class YelpAction extends Action{
 	    	JSONObject thisobj = (JSONObject) businesses.get(i);
 	    	 String name = thisobj.get("name").toString();
 	    	 String photo = thisobj.get("image_url").toString();
+	    	 JSONObject location = (JSONObject) thisobj.get("location");
+	    	 JSONArray addresses = (JSONArray) location.get("address");
+	    	 String address = addresses.get(0).toString();
+	    	 
+
 	 	    System.out.println(name);
 
-	    	 Yelp yelp = new Yelp( name,photo );
+	    	 Yelp yelp = new Yelp( name,photo,address );
 	    	 yelps.add(yelp);
 	    }
 	    

@@ -41,6 +41,8 @@
 								style="padding-left: 20; padding-top: 20;">
 								<div> 	
 								<h2 style="float:left">${yelp.name}</h2>
+								<h2 style="float:left">${yelp.address}</h2>
+								
 								<h2 style="float:right">15min</h2>
 		                       
 								</div>
