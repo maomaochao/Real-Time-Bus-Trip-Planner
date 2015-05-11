@@ -205,11 +205,12 @@ function getCoordinates() {
   <a href="#main" data-icon="home" data-icon-iconpos="notext">Home</a>
   <h1>Map</h1>
 </header>
-<p>
+<!-- <p>
   <img src="http://maps.googleapis.com/maps/api/staticmap?center= 43.60621, -116.278&zoom=15&size=300x300&markers=color:red%7Clabel:A%7C 43.60621, -116.278 &maptype=roadmap18&sensor=false">
 
 
-</p>
+</p> -->
+<iframe src="http://pitlivebus.com" width="480" height="660" seamless></iframe>
 </div> <!--end of page -->
 
 <div data-role="page" id="info">
