@@ -37,7 +37,7 @@
 				<c:if test="${not empty yelps}">
 
 					<c:forEach var="yelp" items="${yelps}">
-						<li><a href="routes.html"> <img src="${yelp.photo}"
+						<li><a href="#map"> <img src="${yelp.photo}"
 								style="padding-left: 20; padding-top: 20;">
 								<div> 	
 								<h2 style="float:left">${yelp.name}</h2>
@@ -69,6 +69,19 @@
 	</div>
 
 	<p>welcome ${user.getName()}</p>
+	
+	<div data-role="page" id="map">
+<header data-role="header">
+  <a href="#main" data-icon="home" data-icon-iconpos="notext">Home</a>
+  <h1>Map</h1>
+</header>
+<!-- <p>
+  <img src="http://maps.googleapis.com/maps/api/staticmap?center= 43.60621, -116.278&zoom=15&size=300x300&markers=color:red%7Clabel:A%7C 43.60621, -116.278 &maptype=roadmap18&sensor=false">
+
+
+</p> -->
+<iframe src="http://pitlivebus.com" width="480" height="660" seamless></iframe>
+</div> <!--end of page -->
 
 </body>
 </html>

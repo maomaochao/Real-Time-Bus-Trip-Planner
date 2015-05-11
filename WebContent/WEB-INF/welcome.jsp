@@ -141,30 +141,24 @@ function getCoordinates() {
         <input type="text" name="fname" id="fname">
       </div><p style="text-align: center;">
 </form>
-<button class="ui-btn" onclick="calcRoute()">Search</button>
+<div align="center">
+<button data-inline="true" onclick="calcRoute()">Search</button>
+<button  data-inline="true" onclick="calcRoute()">Add to Favorite</button>
+</div>
 <br>
 
 
 <div data-role="collapsible-set" data-content-theme="d" id="routes">
 </div>
 
-<br>
-<br>
-  <ul data-role="listview">
-    <li>
-      <a href="yelp.do">
-      <h1>Where to Eat</h1>
-      <img src="img/fork.png" alt="bus3" />
-      <p>Finding places to eat?</p>
-      </a>
-    </li>
-  </ul>
+
 </article>
 <footer data-role="footer" data-position="fixed">
   <nav data-role="navbar">
     <ul>
       <li><a href="#main" data-icon="home">home</a></li>
       <li><a href="#map" data-icon="grid">Maps</a></li>
+       <li><a href="yelp.do" data-icon="star">Restaurant</a></li>
       <li><a href="#info" data-icon="info">Info</a></li>
     </ul>
   </nav>
