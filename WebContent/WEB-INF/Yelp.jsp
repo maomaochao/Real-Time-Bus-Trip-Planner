@@ -64,9 +64,17 @@
 			</ul>
 		</div>
 
-		<div data-role="footer">
-			<h1>Team 15</h1>
-		</div>
+	<footer data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+    
+      <li><a href="#main" > <img src="img/food.png"/>  Food</a></li>
+      <li><a href="#map" ><img src="img/bars.png"/>Bars</a></li>
+       <li><a href="yelp.do"><img src="img/education.png"/>Education</a></li>
+      <li><a href="#info"><img src="img/active.png"/> Active</a></li>
+    </ul>
+  </nav>
+</footer>
 
 	</div>
 
@@ -84,6 +92,8 @@
 </p> -->
 <iframe src="http://pitlivebus.com" width="480" height="660" seamless></iframe>
 </div> <!--end of page -->
+
+
 
 </body>
 </html>

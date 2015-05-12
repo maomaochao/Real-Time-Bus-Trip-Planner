@@ -296,7 +296,7 @@ function getCoordinates() {
     <ul>
       <li><a href="#main" data-icon="home">home</a></li>
       <li><a href="#map" data-icon="grid">Maps</a></li>
-       <li><a href="yelp.do" data-icon="star">Restaurant</a></li>
+       <li><a href="yelp.do" data-icon="star">Activities</a></li>
       <li><a href="#info" data-icon="info">Info</a></li>
     </ul>
   </nav>
