@@ -39,6 +39,9 @@ public class LoginAction extends Action {
 
 			System.out.println("userid"+userid);
 			System.out.println("username"+username);
+			
+			if (userid ==null) 
+				return "login.jsp";
 			// Look up the user
 			User user;
 
@@ -58,7 +61,7 @@ public class LoginAction extends Action {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "yelp.do";
+		return "welcome.jsp";
 	}
 
 }

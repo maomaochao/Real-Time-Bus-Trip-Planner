@@ -25,17 +25,16 @@ public class WelcomAction extends Action{
 	public String perform(HttpServletRequest request) {
 		HttpSession session = request.getSession();
  
-		if (session.getAttribute("user")==null){
-			System.out.println("user is null");
-		return "welcome.jsp";
-		}
-		else {
-			User user = (User) session.getAttribute("user");
-			System.out.println("user "+user.getName());
 
-			return "yelp.do";
+			User user = (User) session.getAttribute("user");
+			if (user!=null)
+			System.out.println("user "+user.getName());
+			else 
+				System.out.println("user is null");
+
+			return "welcome.jsp";
 					
-		}
+		
 	}
 
 }
