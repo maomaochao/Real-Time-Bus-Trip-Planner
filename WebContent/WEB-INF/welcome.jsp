@@ -25,10 +25,10 @@
   <script type="text/javascript">
     function calcRoute() {
       var directionsService = new google.maps.DirectionsService();
-      //var start = "1510 Shady Avenue, Pittsburgh, PA";
-      //var end = "Carnegie Mellon University";
-      var start = document.getElementById("lname").value;
-      var end = document.getElementById("fname").value;
+      var start = "1510 Shady Avenue, Pittsburgh, PA";
+      var end = "Carnegie Mellon University";
+     // var start = document.getElementById("lname").value;
+      //var end = document.getElementById("fname").value;
       var request = {
                       origin: start,
                       destination: end,
@@ -191,7 +191,7 @@ function getCoordinates() {
 </script>
 </head>
 
-<body>
+<body onload = "calcRoute()">
 <div data-role="page" id="main">
 <header data-role="header">
 <table>
@@ -286,7 +286,7 @@ function getCoordinates() {
 <br>
 
 
-<div data-role="collapsible-set" data-content-theme="d" id="routes">
+<div data-role="collapsible-set" data-content-theme="d" id="routes" >
 </div>
 
 
