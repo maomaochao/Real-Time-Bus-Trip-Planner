@@ -42,14 +42,14 @@
 								style="padding-left: 20; padding-top: 20;">
 								<div> 	
 								<h2 style="float:left">${yelp.name}</h2>
-								<h2 style="float:left">${yelp.address}</h2>
+								
 								
 								<h2 style="float:right">15min</h2>
 		                       
 								</div>
 								 <div style="clear:both"> </div>
 							  
-								<p style="float:left">1607 Penn Ave Pittsburgh, PA 15222</p>
+								<p style="float:left">${yelp.address}</p>
 								 <div style="clear:both"> </div>
 							  
 								<p style="float:left">5:06 PM from Forbes Ave at Morewood Ave FS (Carnegie Mellon)</p>
@@ -69,10 +69,10 @@
   <nav data-role="navbar">
     <ul>
     
-      <li><a href="#main" > <img src="img/food.png"/>  Food</a></li>
-      <li><a href="#map" ><img src="img/bars.png"/>Bars</a></li>
-       <li><a href="yelp.do"><img src="img/education.png"/>Education</a></li>
-      <li><a href="#info"><img src="img/active.png"/> Active</a></li>
+      <li><a href="#main"data-icon="home" >   Food</a></li>
+      <li><a href="#map" data-icon="home">Bars</a></li>
+       <li><a href="yelp.do" data-icon="home">Education</a></li>
+      <li><a href="#info"data-icon="home"> Active</a></li>
     </ul>
   </nav>
 </footer>
