@@ -31,7 +31,7 @@ public class YelpAPI {
   private static final String DEFAULT_TERM = "dinner";
   private static final String DEFAULT_CATE = "active";
 
-  private static final String DEFAULT_LOCATION = "Pittsburgh, PA";
+  private static final String DEFAULT_LOCATION = "San Francisco, CA";
   private static final int SEARCH_LIMIT = 5;
   private static final String SEARCH_PATH = "/v2/search";
   private static final String BUSINESS_PATH = "/v2/business";
