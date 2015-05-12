@@ -18,7 +18,7 @@
 <div class="panel-body">
 <c:forEach var="yelp" items="${yelps}">
 	<img  src = "${yelp.photo}"> </img>
-
+   
 	<p style="font-size:medium; color:red">
 		${yelp.name}</br>
 	</p>
