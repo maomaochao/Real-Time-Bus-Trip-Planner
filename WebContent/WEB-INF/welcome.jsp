@@ -57,7 +57,6 @@
           }
       });
     }
-  // window.onload = calcRoute;
   </script>
   <script type="text/javascript">
 function getCoordinates() {    
@@ -79,6 +78,7 @@ function getCoordinates() {
       document.getElementById("lname").value = results[1].formatted_address;
     });
   }
+  window.onload = getCoordinates;
   </script>
   
   <script>
@@ -270,7 +270,7 @@ function getCoordinates() {
 <div data-role="header" data-theme="b">
   <h1>Search for Route</h1>
   </div>
-  <button class="ui-btn" onclick="getCoordinates()">Get Current Location</button>
+  <!-- <button class="ui-btn" onclick="getCoordinates()">Get Current Location</button> -->
 <form method="post" action="#">
       <div data-role="fieldcontain">
         <label for="lname">From: </label>
