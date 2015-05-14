@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<html lang "en">
+<html lang = "en">
 <head>
 	<meta charset = "utf-8" />
 	<title>List App</title>
@@ -120,9 +120,6 @@ function getCoordinates() {
 	        // Person is now logged out
 	    });
 	  
-	  
-	  
-	  
 	  }
   
 
@@ -236,7 +233,7 @@ function getCoordinates() {
         <label for="fname">To  : </label>
         <input type="text" name="fname" id="fname">
         <fieldset data-role="fieldcontain">
-        <label for="route">Favorite Route:</label>
+        <label for="route">★ Route:</label>
         <select name="route" id="route">
          <option value="route1">61A to School</option>
          <option value="route2">61C to home</option>
