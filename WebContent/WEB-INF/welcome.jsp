@@ -36,25 +36,37 @@
                       };
       directionsService.route(request, function(response, status) {
           if (status == google.maps.DirectionsStatus.OK) {
+              console.dir(response.routes);
               var steps = response.routes[0].legs[0].steps;
               var time = response.routes[0].legs[0].duration.value;
               var stepCount = steps.length;
               var validStep = 0;
+              $("#favorites").empty();
+              $("#routes").empty();
               for (var i = 0; i < stepCount; i++) {
                   if (steps[i].transit === undefined) continue;
                   //alert(JSON.stringify(steps[i], null, 4));
-                  validStep++;
                   var lineName = steps[i].transit.line.short_name;
                   if (lineName === undefined) continue;
+                  validStep++;
                   var instructions = steps[i].instructions;
-                  var content = "<div data-role='collapsible' id='routes" + i + "'><h3>"  + lineName + "</h3><p>" + instructions + "</p></div>";
+                  //var content = "<div data-role='collapsible' id='routes" + i + "'><h3>"  + lineName + "</h3><p>" + instructions + "</p></div>";
+                  var departTime = steps[i].transit.departure_time;
+                  if (departTime === undefined) {
+                    departTime = "No Info Available";
+                  } else {
+                    departTime = departTime.text;
+                  }
 
-              var summary = "<p>There are " + validStep + " steps. The trip takes " + Math.floor(time / 60) + " minutes. </p>";
-              $("#favorites").empty();
-              $("#routes").empty();
-              $("#routes").prepend( summary );
+var content = "<div data-role='collapsible' id='routes'" + i + "><h3>"  + lineName + "</h3><table data-role='table' class='ui-responsive' id='favorites'>"
+      + "<thead><tr><th>RouteName</th><th>From</th><th>To</th><th>Next Arrival</th></tr></thead><tbody>"
+      + "<tr><td>" + lineName + "</td><td>" + steps[i].transit.departure_stop.name + "</td><td>" + steps[i].transit.arrival_stop.name + "</td><td>" + departTime + "</td></tr></tbody></table></div>";
+
+
               $("#routes").append( content ).collapsibleset('refresh');
               };
+              var summary = "<p>There are " + validStep + " steps. The trip takes " + Math.floor(time / 60) + " minutes. </p>";
+              $("#routes").prepend( summary );
           }
       });
     }
@@ -254,7 +266,6 @@ function getCoordinates() {
      <table data-role="table" class="ui-responsive" id="favorites">
       <thead>
         <tr>
-          <th>RouteID</th>
           <th>RouteName</th>
           <th>From</th>
           <th>To</th>
@@ -264,7 +275,6 @@ function getCoordinates() {
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
           <td>61A to school</td>
           <td>4742 Centre Avenue</td>
           <td>CMU</td>
