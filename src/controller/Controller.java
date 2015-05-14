@@ -1,9 +1,5 @@
 package controller;
-/*
- * Name- Team Maven(Team-8)
- * Date- 17 Jan 2015
- * Course- Task-7
-*/
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -24,15 +20,8 @@ public class Controller extends HttpServlet{
 	public void init() throws ServletException {
 		Model model=  new Model(getServletConfig());
 		
-		Action.add(new HomePageAction(model));
-		Action.add(new GeoMapAction());
-		Action.add(new GoogleChartAction(model));
-		Action.add(new WordCloudAction(model));
-		Action.add(new UploadAction());
-		Action.add(new MapKMLAction());
-		Action.add(new SigninAction(model));
+
 		Action.add(new WelcomAction());
-		Action.add(new getVerifyAction(model));
 		Action.add(new YelpAction());
 		Action.add(new LoginAction(model));
 		Action.add(new LogoutAction(model));

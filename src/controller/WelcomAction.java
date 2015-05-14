@@ -5,13 +5,10 @@ import javax.servlet.http.HttpSession;
 
 import org.genericdao.RollbackException;
 
-import databean.Location;
 import databean.User;
-import model.LocationDAO;
 import model.Model;
 
 public class WelcomAction extends Action{
-	private LocationDAO locationDAO;
 
 	@Override
 	public String getName() {

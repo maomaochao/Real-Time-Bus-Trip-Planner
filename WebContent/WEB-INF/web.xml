@@ -21,6 +21,7 @@
         <init-param>
           <param-name>    jdbcURL                 </param-name> 
 	      <param-value>   jdbc:mysql:///test   </param-value>
+
         </init-param>       
     </servlet>
     
