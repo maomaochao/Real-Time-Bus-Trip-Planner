@@ -50,6 +50,7 @@
                   var content = "<div data-role='collapsible' id='routes" + i + "'><h3>"  + lineName + "</h3><p>" + instructions + "</p></div>";
 
               var summary = "<p>There are " + validStep + " steps. The trip takes " + Math.floor(time / 60) + " minutes. </p>";
+              $("#favorites").empty();
               $("#routes").empty();
               $("#routes").prepend( summary );
               $("#routes").append( content ).collapsibleset('refresh');
@@ -223,13 +224,19 @@ function getCoordinates() {
 </table>
 </header>
 <article data-role="content">
+
 <div data-role="header" data-theme="b">
-  <h1>My Favorite Route</h1>
+  <h1>Search for Route</h1>
   </div>
-<div data-role="content" data-theme="e">
-<form method="post" action="demoform.asp">
-      <fieldset data-role="fieldcontain">
-        <label for="route">Route Choose:</label>
+  <!-- <button class="ui-btn" onclick="getCoordinates()">Get Current Location</button> -->
+<form method="post" action="#">
+      <div data-role="fieldcontain">
+        <label for="lname">From: </label>
+        <input type="text" name="lname" id="lname" placeholder="Your Location"> 
+        <label for="fname">To  : </label>
+        <input type="text" name="fname" id="fname">
+        <fieldset data-role="fieldcontain">
+        <label for="route">★ Route:</label>
         <select name="route" id="route">
          <option value="route1">61A to School</option>
          <option value="route2">61C to home</option>
@@ -240,9 +247,14 @@ function getCoordinates() {
          <option value="route7">to downtown</option>
         </select>
       </fieldset>
-    </form>
-
-     <table data-role="table" class="ui-responsive">
+      </div>
+</form>
+<div align="center">
+<button data-inline="true" onclick="calcRoute()">Search</button>
+<button  data-inline="true" onclick="calcRoute()">Add to Favorite</button>
+</div>
+<br>
+     <table data-role="table" class="ui-responsive" id="favorites">
       <thead>
         <tr>
           <th>RouteID</th>
@@ -264,27 +276,6 @@ function getCoordinates() {
         </tr>
       </tbody>
     </table>
-</div>
-<br>
-
-<div data-role="header" data-theme="b">
-  <h1>Search for Route</h1>
-  </div>
-  <!-- <button class="ui-btn" onclick="getCoordinates()">Get Current Location</button> -->
-<form method="post" action="#">
-      <div data-role="fieldcontain">
-        <label for="lname">From: </label>
-        <input type="text" name="lname" id="lname" placeholder="Your Location"> 
-        <label for="fname">To  : </label>
-        <input type="text" name="fname" id="fname">
-      </div><p style="text-align: center;">
-</form>
-<div align="center">
-<button data-inline="true" onclick="calcRoute()">Search</button>
-<button  data-inline="true" onclick="calcRoute()">Add to Favorite</button>
-</div>
-<br>
-
 
 <div data-role="collapsible-set" data-content-theme="d" id="routes">
 </div>
@@ -295,9 +286,9 @@ function getCoordinates() {
   <nav data-role="navbar">
     <ul>
       <li><a href="#main" data-icon="home">home</a></li>
-      <li><a href="#map" data-icon="grid">Maps</a></li>
+      <li><a href="map.html" data-icon="grid">Maps</a></li>
        <li><a href="yelp.do" data-icon="star">Activities</a></li>
-      <li><a href="#info" data-icon="info">Info</a></li>
+      <!-- <li><a href="#info" data-icon="info">Info</a></li> -->
     </ul>
   </nav>
 </footer>
@@ -332,25 +323,13 @@ function getCoordinates() {
         </div>
 </div> <!--end of page -->
 
-<div data-role="page" id="map">
-<header data-role="header">
-  <a href="#main" data-icon="home" data-icon-iconpos="notext">Home</a>
-  <h1>Map</h1>
-</header>
-<!-- <p>
-  <img src="http://maps.googleapis.com/maps/api/staticmap?center= 43.60621, -116.278&zoom=15&size=300x300&markers=color:red%7Clabel:A%7C 43.60621, -116.278 &maptype=roadmap18&sensor=false">
 
-
-</p> -->
-<iframe src="http://pitlivebus.com" width="480" height="660" seamless></iframe>
-</div> <!--end of page -->
-
-<div data-role="page" id="info">
+<!-- <div data-role="page" id="info">
 <header data-role="header">
   <a href="#main" data-icon="home" data-icon-iconpos="notext">Home</a>
   <h1>Information</h1>
 </header>
 <p> This is a test page for task 13</p>
-</div> <!--end of page -->
+</div>  -->
 </body>
 </html>
