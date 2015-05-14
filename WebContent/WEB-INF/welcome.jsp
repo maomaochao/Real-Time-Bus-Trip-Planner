@@ -178,7 +178,7 @@ function getCoordinates() {
       });
      // document.location.href="welcome.do";
 
-    location.reload();
+    //location.reload();
     });
    
    // document.location.href="login.do?userid="+response.id+"&username="+response.name;
