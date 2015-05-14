@@ -25,7 +25,7 @@ public class Controller extends HttpServlet{
 		Action.add(new YelpAction());
 		Action.add(new LoginAction(model));
 		Action.add(new LogoutAction(model));
-
+		Action.add(new MapAction());
 
 	}
 

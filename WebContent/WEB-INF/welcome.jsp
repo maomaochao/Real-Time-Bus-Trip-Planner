@@ -283,7 +283,7 @@ function getCoordinates() {
   <nav data-role="navbar">
     <ul>
       <li><a href="#main" data-icon="home">home</a></li>
-      <li><a href="map.html" data-icon="grid">Maps</a></li>
+      <li><a href="map.do" data-icon="grid">Maps</a></li>
        <li><a href="yelp.do" data-icon="star">Activities</a></li>
       <!-- <li><a href="#info" data-icon="info">Info</a></li> -->
     </ul>
