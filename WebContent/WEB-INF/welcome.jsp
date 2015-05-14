@@ -233,7 +233,7 @@ function getCoordinates() {
         <label for="fname">To  : </label>
         <input type="text" name="fname" id="fname">
         <fieldset data-role="fieldcontain">
-        <label for="route">★ Route:</label>
+        <label for="route">Favorite Route:</label>
         <select name="route" id="route">
          <option value="route1">61A to School</option>
          <option value="route2">61C to home</option>
