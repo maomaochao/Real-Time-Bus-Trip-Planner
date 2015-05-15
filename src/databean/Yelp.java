@@ -9,15 +9,19 @@ public class Yelp {
 	private String rank;
 	private String address;
 	private String url;
+	private String time;
+	private String snippet;
 
 	
-	public Yelp(String name,String photo,String address,String rank, String url){
+	public Yelp(String name,String photo,String address,String rank, String url,String time,String snippet){
 		this.name = name;
 		this.photo = photo;
 		this.address = address;
 		this.rank = rank;
 		this.url = url;
-		
+		this.time = time;
+		this.snippet = snippet;
+
 		
 	}
 	
@@ -51,18 +55,18 @@ public class Yelp {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-//	public String getServer() {
-//		return server;
-//	}
-//	public void setServer(String server) {
-//		this.server = server;
-//	}
-//	public String getFarm() {
-//		return farm;
-//	}
-//	public void setFarm(String farm) {
-//		this.farm = farm;
-//	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public String getSnippet() {
+		return snippet;
+	}
+	public void setSnippet(String snippet) {
+		this.snippet = snippet;
+	}
 //	public String toString(){
 //		return "https://farm"+farm+".staticflickr.com/"+server+"/"+id+"_"+secret+".jpg";
 //		//https://farm3.staticflickr.com/2634/4046568058_0d7cffe35d.jpg

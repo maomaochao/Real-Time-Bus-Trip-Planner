@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -59,11 +60,16 @@ public class YelpAction extends Action{
 	    	 String photo = "N/A";
 	    	 String rank = "N/A";
 	    	 String url = "N/A";
+	    	 String snippet = "N/A";
 
+	    	 Random random = new Random();
+	    	 int timeInt =8+ random.nextInt(22);
+	    	 String time = ""+timeInt;
 	    	 
 	    	 if (thisobj.get("image_url")!= null){  photo = thisobj.get("image_url").toString();}
 	    	 if (thisobj.get("rating_img_url_small")!= null){  rank = thisobj.get("rating_img_url_small").toString();}
 	    	 if (thisobj.get("url")!= null){  url = thisobj.get("url").toString();}
+	    	 if (thisobj.get("snippet_text")!= null){  snippet = thisobj.get("snippet_text").toString();}
 
 	    	 JSONObject location = (JSONObject) thisobj.get("location");
 	    	 JSONArray addresses = (JSONArray) location.get("address");
@@ -72,7 +78,7 @@ public class YelpAction extends Action{
 
 	 	    System.out.println(name);
 
-	    	 Yelp yelp = new Yelp( name,photo,address,rank,url );
+	    	 Yelp yelp = new Yelp( name,photo,address,rank,url , time, snippet);
 	    	 yelps.add(yelp);
 	    }
 	    
