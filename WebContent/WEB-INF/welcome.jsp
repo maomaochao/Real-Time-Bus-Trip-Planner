@@ -303,15 +303,15 @@ function getCoordinates() {
   </div>
       <div data-role="fieldcontain">
         <label for="lname">From: </label>
-        <input type="text" name="lname" id="lname" placeholder="Your Location"> 
+        <input type="text" name="from" id="lname" placeholder="Your Location"> 
         <label for="fname">To  : </label>
-        <input type="text" name="fname" id="fname">
+        <input type="text" name="to" id="fname">
         
       </div>
 </form>
 <div align="center">
 <button data-inline="true" onclick="calcRoute()">Search</button>
-<button  data-inline="true" onclick="calcRoute()">Add to Favorite</button>
+<button  data-inline="true"><a href="addFavorite.do?departure=${from}&arrival=${to}">Add to Favorite</a></button>
 </div>
 <br>
      

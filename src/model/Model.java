@@ -8,6 +8,7 @@ import org.genericdao.DAOException;
 
 public class Model {
 	private UserDAO userDAO;
+	private FavoriteDAO favoriteDAO;
 
 
 	public Model(ServletConfig config) throws ServletException {		
@@ -18,9 +19,11 @@ public class Model {
 			ConnectionPool cp 	= new ConnectionPool(jdbcDrive, jdbcURL);
 			
 			String userTbl = "team15_user";
+			String favoriteTbl = "team15_favorite";
 
 			
 			userDAO = new UserDAO(cp, userTbl);
+			favoriteDAO= new FavoriteDAO(cp, favoriteTbl);
 		
 			
 		} catch (DAOException e) {
@@ -29,4 +32,9 @@ public class Model {
 	}
 	
 	public UserDAO getUserDAO()  { return userDAO; }
+
+	public FavoriteDAO getFavoriteDAO() {
+		return favoriteDAO;
+	}
+
 }
