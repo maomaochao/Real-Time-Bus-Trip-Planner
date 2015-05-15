@@ -6,15 +6,17 @@ import org.genericdao.PrimaryKey;
 public class Yelp {
 	private String photo;
 	private String name;
-	//private String rank;
+	private String rank;
 	private String address;
+	private String url;
+
 	
-	
-	public Yelp(String name,String photo,String address){
+	public Yelp(String name,String photo,String address,String rank, String url){
 		this.name = name;
 		this.photo = photo;
 		this.address = address;
-
+		this.rank = rank;
+		this.url = url;
 		
 		
 	}
@@ -37,18 +39,18 @@ public class Yelp {
 	public void setAddress(String address){
 		this.address = address;
 	}
-//	public String getOwner() {
-//		return owner;
-//	}
-//	public void setOwner(String owner) {
-//		this.owner = owner;
-//	}
-//	public String getSecret() {
-//		return secret;
-//	}
-//	public void setSecret(String secret) {
-//		this.secret = secret;
-//	}
+	public String getRank() {
+		return rank;
+	}
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 //	public String getServer() {
 //		return server;
 //	}

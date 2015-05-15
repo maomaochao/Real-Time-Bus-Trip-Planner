@@ -32,7 +32,7 @@ public class YelpAPI {
   private static final String DEFAULT_CATE = "active";
 
   private static final String DEFAULT_LOCATION = "San Francisco, CA";
-  private static final int SEARCH_LIMIT = 5;
+  private static final int SEARCH_LIMIT = 10;
   private static final String SEARCH_PATH = "/v2/search";
   private static final String BUSINESS_PATH = "/v2/business";
 
@@ -75,7 +75,7 @@ public class YelpAPI {
    */
   public String searchForBusinessesByLocation(String term, String location, String cate) {
     OAuthRequest request = createOAuthRequest(SEARCH_PATH);
-    request.addQuerystringParameter("term", term);
+    //request.addQuerystringParameter("term", term);
     request.addQuerystringParameter("category_filter", cate);
 
     request.addQuerystringParameter("location", location);

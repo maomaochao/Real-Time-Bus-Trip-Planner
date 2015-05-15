@@ -26,19 +26,23 @@
 	<div data-role="page">
 
 		<div data-role="header">
+		<a href="welcome.do" class="ui-btn ui-icon-home ui-btn-icon-left"
+				data-rel="back">Home</a>
 			<a href="#" class="ui-btn ui-icon-home ui-btn-icon-left"
 				data-rel="back">Back</a>
 			<h1>Bus Trip Planner</h1>
 		</div>
 
 		<div>
-			<h3>Here are the best restaurants:</h3>
+			<h3>Team 15 Recommendations:</h3>
 			<ul data-role="listview" data-inset="true">
 
 				<c:if test="${not empty yelps}">
 
 					<c:forEach var="yelp" items="${yelps}">
-						<li><a href="#map"> <img src="${yelp.photo}"
+						<li><a href="${yelp.url}"> <img src="${yelp.photo}"
+								style="padding-left: 20; padding-top: 20;">
+								<img src="${yelp.rank}"
 								style="padding-left: 20; padding-top: 20;">
 								<div> 	
 								<h2 style="float:left">${yelp.name}</h2>
@@ -69,10 +73,10 @@
   <nav data-role="navbar">
     <ul>
     
-      <li><a href="#main"data-icon="home" >   Food</a></li>
-      <li><a href="#map" data-icon="home">Bars</a></li>
-       <li><a href="yelp.do" data-icon="home">Education</a></li>
-      <li><a href="#info"data-icon="home"> Active</a></li>
+      <li><a href="yelp.do?cate=restaurants"data-icon="home" >Food</a></li>
+      <li><a href="yelp.do?cate=bars" data-icon="home">Bars</a></li>
+       <li><a href="yelp.do?cate=barbers" data-icon="home">Beauty</a></li>
+      <li><a href="yelp.do?cate=active"data-icon="home"> Active</a></li>
     </ul>
   </nav>
 </footer>

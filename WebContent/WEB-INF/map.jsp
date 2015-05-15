@@ -24,10 +24,20 @@
 <body>
 <div data-role="page" id="map">
 <header data-role="header">
-  <a href="#main" data-icon="home" data-icon-iconpos="notext">Home</a>
+  <a href="welcome.do" data-icon="home" data-icon-iconpos="notext">Home</a>
   <h1>Map</h1>
 </header>
 
 <iframe src="http://pitlivebus.com" width="480" height="660" seamless></iframe>
+<footer data-role="footer" data-position="fixed">
+  <nav data-role="navbar">
+    <ul>
+      <li><a href="welcome.do" data-icon="home">Home</a></li>
+      <li><a href="map.do" data-icon="grid">Map</a></li>
+       <li><a href="yelp.do" data-icon="star">Places</a></li>
+      <!-- <li><a href="#info" data-icon="info">Info</a></li> -->
+    </ul>
+  </nav>
+</footer>
 </div>
 </body>

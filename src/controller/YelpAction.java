@@ -28,10 +28,15 @@ public class YelpAction extends Action{
 		List<Yelp> yelps = new ArrayList<Yelp>();
 		
 	    System.out.println("performing");
+	    
+	    String cate ="restaurants";
+	    		if (request.getParameter("cate")!=null){
+	    			cate = request.getParameter("cate");
+	    		}
 
 		YelpAPI yelpApi = new YelpAPI();
 		String searchResponseJSON =
-		        yelpApi.searchForBusinessesByLocation("", "San Francisco, CA", "education");
+		        yelpApi.searchForBusinessesByLocation("", "Pittsburgh, PA", cate);
 		
 		 JSONParser parser = new JSONParser();
 		 JSONObject response = null;
@@ -44,10 +49,22 @@ public class YelpAction extends Action{
 		    }
 		
 		JSONArray businesses = (JSONArray) response.get("businesses");
-	    for ( int i = 0 ; i < 5 ; i ++ ){
+	      System.out.println(businesses.size());
+
+	    for ( int i = 0 ; i < Math.min(10, businesses.size()) ; i ++ ){
 	    	JSONObject thisobj = (JSONObject) businesses.get(i);
+		      System.out.println("this is no. "+i+" "+ thisobj.toString());
+
 	    	 String name = thisobj.get("name").toString();
-	    	 String photo = thisobj.get("image_url").toString();
+	    	 String photo = "N/A";
+	    	 String rank = "N/A";
+	    	 String url = "N/A";
+
+	    	 
+	    	 if (thisobj.get("image_url")!= null){  photo = thisobj.get("image_url").toString();}
+	    	 if (thisobj.get("rating_img_url_small")!= null){  rank = thisobj.get("rating_img_url_small").toString();}
+	    	 if (thisobj.get("url")!= null){  url = thisobj.get("url").toString();}
+
 	    	 JSONObject location = (JSONObject) thisobj.get("location");
 	    	 JSONArray addresses = (JSONArray) location.get("address");
 	    	 String address = addresses.get(0).toString();
@@ -55,7 +72,7 @@ public class YelpAction extends Action{
 
 	 	    System.out.println(name);
 
-	    	 Yelp yelp = new Yelp( name,photo,address );
+	    	 Yelp yelp = new Yelp( name,photo,address,rank,url );
 	    	 yelps.add(yelp);
 	    }
 	    

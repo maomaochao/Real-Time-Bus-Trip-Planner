@@ -1,9 +1,24 @@
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <html lang = "en">
 <head>
+<style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+<script>
 
+var tds = document.getElementsByTagName("td");
+
+for(var i = 0, j = tds.length; i < j; ++i)
+   tds[i].style.color = "#00AA11";
+</script>
 	<meta charset = "utf-8" />
 	<title>List App</title>
 	
@@ -15,38 +30,65 @@
 
   <!-- Include the jQuery Mobile library -->
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 
-<!--   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
- -->	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<style>
     img.fullscreen {max-height:100%; max-width" 100%;}
     #map-page, #map-canvas { width: 100%; height: 100%; padding: 0; }
   </style>
-  <script type="text/javascript">
- 
-  $(function() {
-  	var input = document.getElementById("lname");
-   	  var autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] });
-   	  google.maps.event.addListener(autocomplete, 'place_changed', function() {
-   	      var place = autocomplete.getPlace();
-   	      input.place = place;
-      console.log( "ready!" );
-  		});
-   	var input = document.getElementById("fname");
- 	  var autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] });
- 	  google.maps.event.addListener(autocomplete, 'place_changed', function() {
- 	      var place = autocomplete.getPlace();
- 	      input.place = place;
-    console.log( "ready!" );
-		});
+  
+  <script>
+var map;
+var infowindow;
+
+function initialize() {
+  var pyrmont = new google.maps.LatLng(40.439722, -79.976389);
+
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
+    center: pyrmont,
+    zoom: 15
   });
 
+  var request = {
+    location: pyrmont,
+    radius: 50000,
+    name: 'market district'
 
-      
+  };
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+}
+
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+       createMarker(results[i]);
+     
+    }
+  }
+}
+
+ function createMarker(place) {
+   var placeLoc = place.geometry.location;
+  var marker = new google.maps.Marker({
+    map: map,
+     position: place.geometry.location
+   });
+
+   google.maps.event.addListener(marker, 'click', function() {
+     infowindow.setContent(place.name);
+     infowindow.open(map, this);
+
+   });
+ } 
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  <script type="text/javascript">
     function calcRoute() {
-    	
-    	
       var directionsService = new google.maps.DirectionsService();
       //var start = "1510 Shady Avenue, Pittsburgh, PA";
       //var end = "Carnegie Mellon University";
@@ -225,6 +267,7 @@ function getCoordinates() {
 </head>
 
 <body>
+
 <div data-role="page" id="main">
 <header data-role="header">
 <table>
@@ -255,6 +298,7 @@ function getCoordinates() {
 </tr>
 </table>
 </header>
+<div id="map-canvas"></div>
 <article data-role="content">
 
 <div data-role="header" data-theme="g">
