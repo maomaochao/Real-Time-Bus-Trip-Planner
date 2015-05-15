@@ -233,7 +233,7 @@ function getCoordinates() {
 &ensp;
 </td>
 <td>
-  <div align="center"> <h1> Real-time Bus planer</h1>&ensp;&ensp; </div>
+  <div align="center"> <h1> Real-time Bus planner</h1>&ensp;&ensp; </div>
   </td>
   <td>
   					<c:choose>

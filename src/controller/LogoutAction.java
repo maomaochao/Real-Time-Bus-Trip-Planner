@@ -1,10 +1,4 @@
-/*
- * 08-600
- * Homework #9
- * Jiali Chen
- * andrewID: jialic
- * Dec 4, 2014
- */
+
 package controller;
 
 import java.util.ArrayList;

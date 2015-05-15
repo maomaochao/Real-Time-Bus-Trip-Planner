@@ -18,9 +18,7 @@ public class Model {
 			ConnectionPool cp 	= new ConnectionPool(jdbcDrive, jdbcURL);
 			
 			String userTbl = "team15_user";
-			String commentTbl = "team8_comment";
-			String locationtbl= "team8_location";
-			String visittbl= "team8_visit";
+
 			
 			userDAO = new UserDAO(cp, userTbl);
 		
