@@ -265,7 +265,7 @@ function getCoordinates() {
   </div>
 
   <!-- <button class="ui-btn" onclick="getCoordinates()">Get Current Location</button> -->
-<form method="post" action="#">
+<form method="post" action="#"></form>
   <fieldset data-role="fieldcontain">
         <select name="route" id="route">
          <option value="route1">61A to School</option>
@@ -310,34 +310,23 @@ function getCoordinates() {
     <p>Plan A New Trip:</p>
   
   </div>
+<form method="post" action="addFavorite.do">
       <div data-role="fieldcontain">
         <label for="lname">From: </label>
-        <input type="text" name="from" id="lname" placeholder="Your Location"> 
+        <input type="text" name="departure" id="lname" placeholder="Your Location"> 
         <label for="fname">To  : </label>
-        <input type="text" name="to" id="fname">
+        <input type="text" name="arrival" id="fname">
         
       </div>
-</form>
+
 <div align="center">
 
 <button data-inline="true" onclick="calcRoute()">Search</button>
-<button  data-inline="true"><a href="addFavorite.do?departure=${from}&arrival=${to}">Add to Favorite</a></button>
+<button  data-inline="true" type="submit">Add to Favorite</button>
 
+</div>
+</form>
 
-    <div data-role="popup" id="myPopupDialog1">
-      <div data-role="header">
-        <h1>Success!</h1>
-      </div>
-
-      <div data-role="main" class="ui-content">
-        <h2>Added to my favorites</h2>
-        <p></p>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
-      </div>
-      <div data-role="footer">
-        <h1></h1>
-      </div>
-      </div></div>
 
 <br>
      
