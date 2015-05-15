@@ -5,7 +5,7 @@
 <head>
 
 	<meta charset = "utf-8" />
-	<title>List App</title>
+	<title>Real-time Bus Planner</title>
 	
   <!-- Include jQuery Mobile stylesheets -->
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
@@ -280,7 +280,7 @@ function getCoordinates() {
       <table data-role="table" class="ui-responsive" id="favorites">
       <thead>
         <tr>
-          <th>RouteName</th>
+          <!-- <th>Route Name</th> -->
           <th>From</th>
           <th>To</th>
           <th>Next Arrival</th>
@@ -289,8 +289,8 @@ function getCoordinates() {
       </thead>
       <tbody>
         <tr>
-          <td>61A to school</td>
-          <td>4742 Centre Avenue</td>
+<!--           <td>61A to school</td>
+ -->          <td>4742 Centre Avenue</td>
           <td>CMU</td>
           <td>2:55 PM @ Forbes Ave at Shady Ave</td>
           
@@ -300,8 +300,8 @@ function getCoordinates() {
     </table>
     <label for="switch">Alarm: </label>
       <select name="switch" id="switch" data-role="slider">
-        <option value="on">On</option>
-        <option value="off" selected>Off</option>
+        <option value="on">Off</option>
+        <option value="off" selected>On</option>
       </select>
     
   
