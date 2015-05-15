@@ -1,431 +1,326 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	
+<html class="ui-mobile"><head><base href="http://demos.jquerymobile.com/1.4.0/pages-dialog/dialog.html">
 	<meta charset="utf-8">
-	<title>Character | responsive bootstrap3 html5 template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	
-	<link rel="shortcut icon" href="images/favicon.ico">
-    
-	<!-- CSS STYLES -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<link href="css/fontElegant.css" rel="stylesheet" type="text/css" />
-    <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" />
-	<link href="css/flexslider.css" rel="stylesheet" type="text/css" />
-	<link href="css/animate.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
-    
-	<!-- FONTS -->
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    
-	<!-- SCRIPTS -->
-	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <!--[if IE]><html class="ie" lang="en"> <![endif]-->
-	
-	<script src="js/jquery.min.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="js/jquery.prettyPhoto.js" type="text/javascript"></script>
-	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
-	<script src="js/jquery.isotope.min.js" type="text/javascript"></script>
-	<script src="js/sorting.js" type="text/javascript"></script>
-	<script src="js/jquery.twitter.js" type="text/javascript"></script>
-	<script src="js/superfish.min.js" type="text/javascript"></script>
-	<script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
-	<script src="js/animate.js" type="text/javascript"></script>
-	<script src="js/myscript.js" type="text/javascript"></script>
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=10, user-scalable=yes">
+	<title>Dialog example - jQuery Mobile Demos</title>
+	<link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="../css/themes/default/jquery.mobile-1.4.0.min.css">
+	<link rel="stylesheet" href="../_assets/css/jqm-demos.css">
+	<script src="../js/jquery.js"></script>
+	<script src="../_assets/js/index.js"></script>
+	<script src="../js/jquery.mobile-1.4.0.min.js"></script>
+    <style>
+		.ui-dialog.dialog-actionsheet .ui-dialog-contain {
+			margin-top: 0;
+		}
+	</style>
 </head>
-<body>
+<body class="ui-mobile-viewport ui-overlay-a" id="ui-page-top">
+<div data-role="page" class="jqm-demos ui-page ui-page-theme-a ui-page-footer-fixed" data-quicklinks="true" data-url="/1.4.0/pages-dialog/" tabindex="0" style="padding-bottom: 82px; min-height: 585px;"><div data-role="panel" class="jqm-nav-panel jqm-quicklink-panel ui-panel ui-panel-position-right ui-panel-display-overlay ui-panel-closed ui-body-a ui-panel-animate" data-position="right" data-display="overlay" data-theme="a"><div class="ui-panel-inner"><ul data-role="listview" data-inset="false" data-theme="a" data-divider-theme="a" data-icon="false" class="jqm-list ui-listview ui-group-theme-a"><li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-a ui-first-child">Quick Links</li><li><a href="#Basics" class="ui-btn">Basics</a></li><li><a href="#Transitions" class="ui-btn">Transitions</a></li><li><a href="#Closingdialogs" class="ui-btn">Closing dialogs</a></li><li><a href="#ChainingDialogs" class="ui-btn">Chaining Dialogs</a></li><li><a href="#Stylingtheming" class="ui-btn">Styling &amp; theming</a></li><li class="ui-last-child"><a href="#Dialogwidthandmargins" class="ui-btn">Dialog width and margins</a></li></ul></div></div>
 
-<!-- PRELOADER -->
-<div id="preloader"><img src="images/preloader.gif" alt="" /></div>
-<!-- //PRELOADER -->
+	<div data-role="header" class="jqm-header ui-header ui-bar-inherit" role="banner">
+		<h2 class="ui-title" role="heading" aria-level="1"><a href="../" title="jQuery Mobile Demos home" class="ui-link"><img src="../_assets/img/jquery-logo.png" alt="jQuery Mobile"></a></h2>
+		<p><span class="jqm-version">1.4.0</span> Demos</p>
+		<a href="#" class="jqm-navmenu-link ui-nodisc-icon ui-alt-icon ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" data-role="button" role="button">Menu</a>
+		<a href="#" class="jqm-search-link ui-nodisc-icon ui-alt-icon ui-btn-right ui-btn ui-icon-search ui-btn-icon-notext ui-corner-all" data-role="button" role="button">Search</a>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content jqm-content">
+
+		<h1>Dialogs</h1>
+
+		<p>Any page can be presented as a modal dialog that appears to be suspended above the page by adding an attribute to the link that leads to the dialog page.</p>
+
+		<p><strong>Note:</strong> The dialog widget is deprecated in 1.4 and will be removed in 1.5. The page widget now has the <code>dialog</code> option which, when set to <code>true</code> will apply dialog styling to a page.</p>
+
+		<a href="#" data-ajax="false" class="jqm-deeplink jqm-open-quicklink-panel ui-icon-carat-l ui-alt-icon">Quick Links</a><h2 id="Basics">Basics</h2>
+		<p>Any page can be presented as a modal dialog by adding the <code>data-dialog="true"</code> attribute to the page. When the "dialog" attribute is applied, the framework adds styles to add rounded corners, margins around the page and a dark background to make the "dialog" appear to be suspended above the page. By default the framework will also add a close button if the dialog has a header.</p>
+
+		<p>
+			<code>
+			&lt;a href="dialog.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="pop"&gt;Open dialog&lt;/a&gt;
+			</code>
+			</p>
+
+			<a href="dialog.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="pop">Open dialog</a>
+
+		<a href="#ui-page-top" class="jqm-deeplink ui-icon-carat-u ui-alt-icon">Top</a><h2 id="Transitions">Transitions</h2>
+		<p>By default, the dialog will open with the same transition as a regular page. Like all pages, you can specify any <a href="page-transitions.html" class="ui-link">page transition</a> you want on the dialog by adding the <code>data-transition</code> attribute to the link. To make it feel more dialog-like, we recommend specifying a transition of "pop", "slidedown" or "flip".</p>
+
+<code>
+&lt;a href="dialog.html" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" <strong>data-transition="slidedown"</strong>&gt;data-transition="slidedown"&lt;/a&gt;
+</code>
+
+			<div>
+			<a href="dialog.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="slidedown">data-transition="slidedown"</a>
+			<a href="dialog.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip">data-transition="flip"</a>
+			</div>
+
+		<a href="#ui-page-top" class="jqm-deeplink ui-icon-carat-u ui-alt-icon">Top</a><h2 id="Closingdialogs">Closing dialogs</h2>
+		<p>When any link is clicked within a dialog, the framework will automatically close the dialog and transition to the requested page, just as if the dialog were a normal page. Nevertheless, dialogs can also be chained, as explained below under <strong>"Chaining Dialogs"</strong>. Similarly, a link that opens a popup will also leave the dialog in place.</p>
+
+            <p>If the dialog has a header the framework will add a close button at the left side of the header. You can change the position by adding <code>data-close-btn="right"</code> to the dialog container. If you don't want a close button in the header or if you want to add a custom close button, you can use <code>data-close-btn="none"</code>.</p>
+			<a href="dialog-rightclosebtn.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="pop">Right close button</a>
+			<a href="dialog-noclosebtn.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="pop">No close button</a>
+
+		<p>To create a "cancel" button in a dialog, just link to the page that triggered the dialog to open and add the <code>data-rel="back"</code> attribute to your link. This pattern of linking to the previous page is also usable in non-JS devices as well.</p>
+		<p>For JavaScript-generated links, you can simply set the href attribute to "#" and use the <code>data-rel="back"</code> attribute.</p>
+
+			<h3>Setting the close button text</h3>
+		<p>Just like the page plugin, you can set a dialog's close button text through an option or data attribute.
+			This option is used to customize the text of the close button which is helpful for translating this into different languages. This is displayed as an icon-only button by default so the text isn't visible on-screen, but is read by screen readers so this is an important accessibility feature.
+			The option can be configured for all dialogs by binding to the <code>mobileinit</code> event and setting the <code>$.mobile.dialog.prototype.options.closeBtnText</code> property to a string of your choosing, or you can place the data attribute <code>data-close-btn-text</code> to configure the text from your markup.
+			</p>
+
+		<a href="#ui-page-top" class="jqm-deeplink ui-icon-carat-u ui-alt-icon">Top</a><h2 id="ChainingDialogs">Chaining Dialogs</h2>
+		<p>Please note: If a dialog opens another dialog (chaining), closing the last one with a link of type <code>data-rel="back"</code> will always navigate to the previous dialog until the root-page of type <code>data-role="page"</code> is reached. This guarantees a consistent navigation between dialogs.</p>
+
+		<a href="#ui-page-top" class="jqm-deeplink ui-icon-carat-u ui-alt-icon">Top</a><h2 id="Stylingtheming">Styling &amp; theming</h2>
+		<p>Dialogs can be styled with different theme swatches, just like any page by adding <code>data-theme</code> attributes to the header, content, or footer containers. Here is an example of a different dialog design:</p>
+				<a href="dialog-alt.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="pop">An alternate color scheme</a>
+
+		<p>By default dialogs have rounded corners. The option <code>corners</code> can be set to <code>false</code> by adding <code>data-corners="false"</code> to the dialog container:</p>
+				<a href="dialog-corners.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="pop">No rounded corners</a>
+
+		<p>Dialogs appear to be floating above an overlay layer. This overlay adopts the swatch "a" content color by default, but the <code>data-overlay-theme</code> attribute can be added to the page wrapper to set the overlay to any swatch letter. Here is an example of a dialog with the overlay set to swatch "e":</p>
+				<a href="dialog-overlay.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="pop">Custom overlay swatch</a>
+
+		<p>Dialogs can also be used more like a control sheet to offer multiple buttons if you simply remove the top margin from the dialog's inner container element. For example, if your dialog page had a class of <code>my-dialog</code>, you could add this CSS to pin that dialog to the top: <code>.ui-dialog.my-dialog .ui-dialog-contain { margin-top: 0 }</code>, or you could just apply that style to all dialogs with <code>.ui-dialog .ui-dialog-contain { margin-top: 0 }</code>.</p>
+						<a href="dialog-buttons.html" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="slidedown">Share photos...</a>
+
+		<a href="#ui-page-top" class="jqm-deeplink ui-icon-carat-u ui-alt-icon">Top</a><h2 id="Dialogwidthandmargins">Dialog width and margins</h2>
+		<p>For the sake of readability, dialogs have a default <code>width</code> of 92.5% and a <code>max-width</code> of 500 pixels. There is also a 10% top <code>margin</code> to give dialogs larger top margin on larger screens, but collapse to a small margin on smartphones. The dialog's inner container is shifted towards the <code>top</code> with 15px to hide the corner styling if a dialog is used as a control sheet (see above). To override these styles, add the following CSS override rule to your stylesheet and tweak as needed:</p>
+
+<pre><code>
+.ui-dialog-contain {
+	<strong>width: 92.5%;</strong>
+	<strong>max-width: 500px;</strong>
+	<strong>margin: 10% auto 15px auto;</strong>
+	padding: 0;
+	position: relative;
+	<strong>top: -15px;</strong>
+}
+</code></pre>
+
+	</div><!-- /content -->
+	    <div data-role="panel" class="jqm-navmenu-panel ui-panel ui-panel-position-left ui-panel-display-overlay ui-panel-closed ui-body-a ui-panel-animate" data-position="left" data-display="overlay" data-theme="a">
+	    	<div class="ui-panel-inner"><ul class="jqm-list ui-alt-icon ui-nodisc-icon ui-listview">
+<li data-filtertext="demos homepage" data-icon="home" class="ui-first-child"><a href=".././" class="ui-btn ui-btn-icon-right ui-icon-home">Home</a></li>
+<li data-filtertext="introduction overview getting started"><a href="../intro/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Introduction</a></li>
+<li data-filtertext="buttons button markup buttonmarkup method anchor link button element"><a href="../button-markup/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Buttons</a></li>
+<li data-filtertext="form button widget input button submit reset"><a href="../button/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Button widget</a></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Checkboxradio widget<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
 	
-	<!-- PAGE -->
-	<div id="page">
-		
-		<!-- PRELOADER HIDE -->
-		<div class="preloader_hide">
-		
-			<!-- PAGE BLOCK -->
-			<div class="page_block">
-					
-				<!-- HEADER -->
-				<header>
-					
-					<!-- MENU -->
-					<div class="menu_block clearfix">
-						
-						<!-- CONTAINER -->
-						<div class="container clearfix">
-						
-							<!-- LOGO -->
-							<div class="logo">
-								<a href="index.html" >Character</a>
-							</div><!-- LOGO -->
-						
-							<!-- RESPONSIVE BUTTON MENU -->
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-									<em></em><em></em><em></em><em></em>
-								</button>
-							</div><!-- //RESPONSIVE BUTTON MENU -->
-							
-							<div class="navbar-collapse collapse">
-								<ul class="nav navbar-nav">
-									<li class="first active"><a href="index.html" >Home</a></li>
-									<li class="sub-menu"><a href="javascript:void(0);" >Features</a>
-										<!-- Mega Menu -->
-										<ul class="mega_menu left">
-											<h4>Two columns and paragraph</h4>
-											<li class="col">
-												<h5>Page Layouts</h5>
-												<ol>
-													<li><a href="typography.html" ><span>-</span>Typography</a></li>
-													<li><a href="shortcodes.html" ><span>-</span>Shortcodes</a></li>
-													<li><a href="full-width.html" ><span>-</span>Full Width</a></li>
-												</ol>
-											</li>
-											<li class="col">
-												<h5>Other Pages</h5>
-												<ol>
-													<li><a href="404.html" ><span>-</span>404 Page</a></li>
-													<li><a href="shop.html" ><span>-</span>Shop</a></li>
-													<li><a href="product-page.html" ><span>-</span>Product Page</a></li>
-												</ol>
-											</li>
-											<li class="col">
-												<h5>Paragraph</h5>
-												<p>This <span class="color_text">Mega Menu</span> can handle everything. Lists, paragraphs, forms...</p>
-											</li>
-											<div class="clear"></div>
-										</ul><!-- //Mega Menu -->
-									</li>
-									<li class="sub-menu menu_middle"><a href="javascript:void(0);" >Pages</a>
-										<ul>
-											<li><a href="about.html" ><span>-</span>About</a></li>
-											<li><a href="shop.html" ><span>-</span>Shop</a></li>
-											<li><a href="product-page.html" ><span>-</span>Product Page</a></li>
-											<li><a href="full-width.html" ><span>-</span>Full Width</a></li>
-											<li><a href="404.html" ><span>-</span>404 Page</a></li>
-										</ul>
-									</li>
-									<li class="sub-menu"><a href="javascript:void(0);" >Portfolio</a>
-										<ul>
-											<li><a href="portfolio1.html" ><span>-</span>1 Column</a></li>
-											<li><a href="portfolio2.html" ><span>-</span>2 Column</a></li>
-											<li><a href="portfolio3.html" ><span>-</span>3 Column</a></li>
-											<li><a href="portfolio4.html" ><span>-</span>4 Column</a></li>
-											<li><a href="portfolio-post.html" ><span>-</span>Portfolio Post</a></li>
-										</ul>
-									</li>
-									<li class="sub-menu"><a href="javascript:void(0);" >Blog</a>
-										<ul>
-											<li><a href="blog.html" ><span>-</span>Blog with sidebar</a></li>
-											<li><a href="blog-post.html" ><span>-</span>Blog Post</a></li>
-										</ul>
-									</li>
-									<li class="last"><a href="contacts.html" >Contacts</a></li>
-								</ul>
-							</div>
-						</div><!-- //CONTAINER -->
-					</div><!-- //MENU -->
-				</header><!-- //HEADER -->
-					
-					
-				<!-- SLIDER -->
-				<div class="slider_block">
-					<div class="flexslider top_slider">
-						<ul class="slides">
-							<li class="slide1">
-								<div class="container">
-									<div class="caption_middle clearfix">
-										<div class="caption_img1 FromLeft"><img src="images/slider/caption_img1.png" alt="" /></div>
-										<div class="flex_caption1 FromRight">
-											<p>say something wonderful here</p>
-											<span>Aliquam tempus est sit amet orci porta condimentum. Quisque hendrerit velit erat, in bibendum eros ultricies sit amet. Sed tempor</span>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="slide2">
-								<div class="container">
-									<div class="caption_middle clearfix">
-										<div class="caption_img2 FromTop"><img src="images/slider/caption_img2.png" alt="" /></div>
-										<div class="flex_caption1 FromBottom">
-											<p>Say something <b>Wonderful here</b></p>
-											<a class="btn btn-active btn-lg" href="javascript:void(0);" >call to action</a>
-										</div>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div><!-- //SLIDER -->
-				
-				
-				<!-- SERVICES -->
-				<section class="services_block">
-					
-					<!-- CONTAINER -->
-					<div class="container">
-					
-						<!-- ROW -->
-						<div class="row" data-appear-top-offset="-100" data-animated="fadeInUp">
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ss-12 service_item center">
-								<a href="javascript:void(0);" >
-									<i class="fe icon_mobile"></i>
-									<p>Responsive Layout</p>
-									<span>Quisque porttitor ligula ut nunc dictum, ac eleifend libero</span>
-								</a>
-							</div>
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ss-12 service_item center">
-								<a href="javascript:void(0);" >
-									<i class="fe icon_comment_alt"></i>
-									<p>Dedicated Support</p>
-									<span>Quisque porttitor ligula ut nunc dictum, ac eleifend libero</span>
-								</a>
-							</div>
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ss-12 service_item center">
-								<a href="javascript:void(0);" >
-									<i class="fe icon_lightbulb_alt"></i>
-									<p>Unique Design</p>
-									<span>Quisque porttitor ligula ut nunc dictum, ac eleifend libero</span>
-								</a>
-							</div>
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ss-12 service_item center">
-								<a href="javascript:void(0);" >
-									<i class="fe icon_star_alt"></i>
-									<p>Brand & Identity</p>
-									<span>Quisque porttitor ligula ut nunc dictum, ac eleifend libero</span>
-								</a>
-							</div>
-						</div><!-- //ROW -->
-					</div><!-- //CONTAINER -->
-				</section><!-- //SERVICES -->
-					
-					
-				<!-- RECENT PROJECTS -->
-				<section class="projects_block">
-					
-					<!-- CONTAINER -->
-					<div class="container">
-						<h2 class="center">Our latest projects</h2>
-					
-						
-						<!-- filter_block -->
-						<div id="options">
-							<ul id="filter" class="option-set" data-option-key="filter">
-								<li><a class="selected" href="#filter" data-option-value="*">All</a></li>
-								<li><a href="#filter" data-option-value=".web">Web</a></li>
-								<li><a href="#filter" data-option-value=".print">Print</a></li>
-								<li><a href="#filter" data-option-value=".design">Design</a></li>
-								<li><a href="#filter" data-option-value=".photography">Photography</a></li>
-							</ul>
-						</div><!-- //filter_block -->
-						
-						<!-- LATEST PROJECTS -->
-						<div class="latest_projects" data-appear-top-offset="-100" data-animated="fadeInUp">
-							<div class="element web">
-								<div class="project_item">
-									<div class="hover_img">
-										<img src="images/projects/1.jpg" alt="" />
-										<a class="zoom" href="images/projects/1.jpg" rel="prettyPhoto[portfolio1]"></a>
-									</div>
-									<div class="project_descr">
-										<a href="javascript:void(0);" >Lorem Ipsum</a>
-										<span>Sed ac posuere est. Integer sagittis turpis sed risus porta, vel cursus augue interdum. Cras et consequat mauris. Praesent in</span>
-									</div>
-								</div>
-							</div>
-							
-							<div class="element print">
-								<div class="project_item">
-									<div class="hover_img">
-										<img src="images/projects/2.jpg" alt="" />
-										<a class="zoom" href="images/projects/2.jpg" rel="prettyPhoto[portfolio1]"></a>
-									</div>
-									<div class="project_descr">
-										<a href="javascript:void(0);" >Lorem Ipsum</a>
-										<span>Sed ac posuere est. Integer sagittis turpis sed risus porta, vel cursus augue interdum. Cras et consequat mauris. Praesent in</span>
-									</div>
-								</div>
-							</div>
-							
-							<div class="element design">
-								<div class="project_item">
-									<div class="hover_img">
-										<img src="images/projects/3.jpg" alt="" />
-										<a class="zoom" href="images/projects/3.jpg" rel="prettyPhoto[portfolio1]"></a>
-									</div>
-									<div class="project_descr">
-										<a href="javascript:void(0);" >Lorem Ipsum</a>
-										<span>Sed ac posuere est. Integer sagittis turpis sed risus porta, vel cursus augue interdum. Cras et consequat mauris. Praesent in</span>
-									</div>
-								</div>
-							</div>
-							
-							<div class="element photography">
-								<div class="project_item">
-									<div class="hover_img">
-										<img src="images/projects/4.jpg" alt="" />
-										<a class="zoom" href="images/projects/4.jpg" rel="prettyPhoto[portfolio1]"></a>
-									</div>
-									<div class="project_descr">
-										<a href="javascript:void(0);" >Lorem Ipsum</a>
-										<span>Sed ac posuere est. Integer sagittis turpis sed risus porta, vel cursus augue interdum. Cras et consequat mauris. Praesent in</span>
-									</div>
-								</div>
-							</div>
-							
-							<div class="element web">
-								<div class="project_item">
-									<div class="hover_img">
-										<img src="images/projects/5.jpg" alt="" />
-										<a class="zoom" href="images/projects/5.jpg" rel="prettyPhoto[portfolio1]"></a>
-									</div>
-									<div class="project_descr">
-										<a href="javascript:void(0);" >Lorem Ipsum</a>
-										<span>Sed ac posuere est. Integer sagittis turpis sed risus porta, vel cursus augue interdum. Cras et consequat mauris. Praesent in</span>
-									</div>
-								</div>
-							</div>
-							
-							<div class="element print">
-								<div class="project_item">
-									<div class="hover_img">
-										<img src="images/projects/6.jpg" alt="" />
-										<a class="zoom" href="images/projects/6.jpg" rel="prettyPhoto[portfolio1]"></a>
-									</div>
-									<div class="project_descr">
-										<a href="javascript:void(0);" >Lorem Ipsum</a>
-										<span>Sed ac posuere est. Integer sagittis turpis sed risus porta, vel cursus augue interdum. Cras et consequat mauris. Praesent in</span>
-									</div>
-								</div>
-							</div>
-						</div><!-- //LATEST PROJECTS -->
-					</div><!-- //CONTAINER -->
-				</section><!-- //RECENT PROJECTS -->
-				
-				
-				<!-- INFORM BLOCK -->
-				<section class="inform_block">
-					
-					<!-- CONTAINER -->
-					<div class="container">
-						
-						<!-- ROW -->
-						<div class="row">
-							<div class="col-lg-5 col-md-5 col-sm-5 padbot50" data-appear-top-offset="-100" data-animated="fadeInLeft">
-								<h2>Our Skills</h2>
-								
-								<!-- OUR SKILLS -->
-								<div class="our-skills">
-									<div class="skill_item">
-										<span>Illustrator</span>
-										<div class="skill-bar" href="javascript:void(0);" alt="">
-											<div class="progress-complete" data-width="65%"></div>
-										</div>
-									</div>
-									<div class="skill_item">
-										<span>Photoshop</span>
-										<div class="skill-bar" href="javascript:void(0);" alt="">
-											<div class="progress-complete" data-width="45%"></div>
-										</div>
-									</div>
-									<div class="skill_item">
-										<span>HTML5</span>
-										<div class="skill-bar" href="javascript:void(0);" alt="">
-											<div class="progress-complete" data-width="75%"></div>
-										</div>
-									</div>
-									<div class="skill_item">
-										<span>Wordpress</span>
-										<div class="skill-bar" href="javascript:void(0);" alt="">
-											<div class="progress-complete" data-width="35%"></div>
-										</div>
-									</div>
-								</div><!-- //OUR SKILLS -->
-							</div>
-							
-							<div class="col-lg-7 col-md-7 col-sm-7 padbot50 about_block" data-appear-top-offset="-100" data-animated="fadeInRight">
-								<h2>About Us</h2>
-								
-								<img class="about_img1" src="images/about_img1.png" alt="" />
-								
-								<div class="about_block_content">
-									<p>Aliquam tempus est sit amet orci porta condimentum. Quisque hendrerit velit erat, in bibendum eros ultricies sit amet. Sed tempor hendrerit purus vitae vestibulum. Nunc egestas justo nec enim mollis, sed dictum nisi luctus.</p>
-									<p>Vestibulum velit libero, cursus vel imperdiet nec, dapibus eget risus. Fusce aliquet convallis mi vel sodales. Integer tristique sapien quis congue facilisis. Nam risus tellus, aliquam a massa et, pharetra gravida felis. Morbi sollicitudin convallis nibh a elementum. Duis vehicula magna augue, sed dictum nisi malesuada vitae. Quisque pulvinar sapien ut congue</p>
-								</div>
-							</div>
-						</div><!-- //ROW -->
-					</div><!-- //CONTAINER -->
-				</section><!-- INFORM BLOCK -->
-				
+	<ul class="ui-listview">
+		<li data-filtertext="form checkboxradio widget checkbox input checkboxes controlgroups" class="ui-first-child"><a href="../checkboxradio-checkbox/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Checkboxes</a></li>
+		<li data-filtertext="form checkboxradio widget radio input radio buttons controlgroups" class="ui-last-child"><a href="../checkboxradio-radio/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Radio buttons</a></li>
+	</ul>
+</div></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Collapsible (set) widget<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="collapsibles content formatting" class="ui-first-child"><a href="../collapsible/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Collapsible</a></li>
+		<li data-filtertext="dynamic collapsible set accordion append expand"><a href="../collapsible-dynamic/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Dynamic collapsibles</a></li>
+		<li data-filtertext="accordions collapsible set widget content formatting grouped collapsibles" class="ui-last-child"><a href="../collapsibleset/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Collapsible set</a></li>
+	</ul>
+</div></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Controlgroup widget<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="controlgroups selectmenu checkboxradio input grouped buttons horizontal vertical" class="ui-first-child"><a href="../controlgroup/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Controlgroup</a></li>
+		<li data-filtertext="dynamic controlgroup dynamically add buttons" class="ui-last-child"><a href="../controlgroup-dynamic/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Dynamic controlgroups</a></li>
+	</ul>
+</div></li>
+<li data-filtertext="form datepicker widget date input"><a href="../datepicker/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Datepicker</a></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Events<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="swipe to delete list items listviews swipe events" class="ui-first-child"><a href="../swipe-list/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Swipe list items</a></li>
+		<li data-filtertext="swipe to navigate swipe page navigation swipe events" class="ui-last-child"><a href="../swipe-page/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Swipe page navigation</a></li>
+	</ul>
+</div></li>
+<li data-filtertext="filterable filter elements sorting searching listview table"><a href="../filterable/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Filterable widget</a></li>
+<li data-filtertext="form flipswitch widget flip toggle switch binary select checkbox input"><a href="../flipswitch/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Flipswitch widget</a></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Forms<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="forms text checkbox radio range button submit reset inputs selects textarea slider flipswitch label form elements" class="ui-first-child"><a href="../forms/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Forms</a></li>
+		<li data-filtertext="form hide labels hidden accessible ui-hidden-accessible forms"><a href="../forms-label-hidden-accessible/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Hide labels</a></li>
+		<li data-filtertext="form field containers fieldcontain ui-field-contain forms"><a href="../forms-field-contain/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Field containers</a></li>
+		<li data-filtertext="forms disabled form elements"><a href="../forms-disabled/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Forms disabled</a></li>
+		<li data-filtertext="forms gallery examples overview forms text checkbox radio range button submit reset inputs selects textarea slider flipswitch label form elements" class="ui-last-child"><a href="../forms-gallery/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Forms gallery</a></li>
+	</ul>
+</div></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Grids<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="grids columns blocks content formatting rwd responsive css framework" class="ui-first-child"><a href="../grids/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Grids</a></li>
+		<li data-filtertext="buttons in grids css framework"><a href="../grids-buttons/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Buttons in grids</a></li>
+		<li data-filtertext="custom responsive grids rwd css framework" class="ui-last-child"><a href="../grids-custom-responsive/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Custom responsive grids</a></li>
+	</ul>
+</div></li>
+<li data-filtertext="blocks content formatting sections heading"><a href="../body-bar-classes/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Grouping and dividing content</a></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Icons<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="button icons svg disc alt custom icon position" class="ui-first-child"><a href="../icons/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Icons</a></li>
+		<li data-filtertext="" class="ui-last-child"><a href="../icons-grunticon/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Grunticon loader</a></li>
+	</ul>
+</div></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Listview widget<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="listview widget thumbnails icons nested split button collapsible ul ol" class="ui-first-child"><a href="../listview/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Listview</a></li>
+		<li data-filtertext="autocomplete filterable reveal listview filtertextbeforefilter placeholder"><a href="../listview-autocomplete/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Listview autocomplete</a></li>
+		<li data-filtertext="autocomplete filterable reveal listview remote data filtertextbeforefilter placeholder"><a href="../listview-autocomplete-remote/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Listview autocomplete remote data</a></li>
+		<li data-filtertext="autodividers anchor jump scroll linkbars listview lists ul ol"><a href="../listview-autodividers-linkbar/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Listview autodividers linkbar</a></li>
+		<li data-filtertext="listview autodividers selector autodividersselector lists ul ol"><a href="../listview-autodividers-selector/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Listview autodividers selector</a></li>
+		<li data-filtertext="listview nested list items"><a href="../listview-nested-lists/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Listview Nested Listviews</a></li>
+		<li data-filtertext="listview collapsible list items flat"><a href="../listview-collapsible-item-flat/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Listview collapsible list items (flat)</a></li>
+		<li data-filtertext="listview collapsible list indented"><a href="../listview-collapsible-item-indented/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Listview collapsible list items (indented)</a></li>
+		<li data-filtertext="grid listview responsive grids responsive listviews lists ul" class="ui-last-child"><a href="../listview-grid/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Listview responsive grid</a></li>
+	</ul>
+</div></li>
+<li data-filtertext="loader widget page loading navigation overlay spinner"><a href="../loader/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Loader widget</a></li>
+<li data-filtertext="navbar widget navmenu toolbars header footer"><a href="../navbar/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Navbar widget</a></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Navigation<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="ajax navigation navigate widget history event method" class="ui-first-child"><a href="../navigation/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Navigation</a></li>
+		<li data-filtertext="linking pages page links navigation ajax prefetch cache"><a href="../navigation-linking-pages/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Linking pages</a></li>
+		<li data-filtertext="php redirect server redirection server-side navigation" class="ui-last-child"><a href="../navigation-php-redirect/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">PHP redirect demo</a></li>
+	</ul>
+</div></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Pages<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="pages page widget ajax navigation" class="ui-first-child"><a href="../pages/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Pages</a></li>
+		<li data-filtertext="single page"><a href="../pages-single-page/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Single page</a></li>
+		<li data-filtertext="multipage multi-page page"><a href="../pages-multi-page/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Multi-page template</a></li>
+		<li data-filtertext="dialog page widget modal popup" class="ui-last-child"><a href="../pages-dialog/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Dialog page</a></li>
+	</ul>
+</div></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Panel widget<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="panel widget sliding panels reveal push overlay responsive" class="ui-first-child"><a href="../panel/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Panel</a></li>
+		<li data-filtertext=""><a href="../panel-external/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">External panels</a></li>
+		<li data-filtertext="panel "><a href="../panel-fixed/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Fixed panels</a></li>
+		<li data-filtertext="panel slide panels sliding panels shadow rwd responsive breakpoint"><a href="../panel-responsive/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Panels responsive</a></li>
+		<li data-filtertext="panel custom style custom panel width reveal shadow listview panel styling page background wrapper"><a href="../panel-styling/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Custom panel style</a></li>
+		<li data-filtertext="panel open on swipe"><a href="../panel-swipe-open/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Panel open on swipe</a></li>
+		<li data-filtertext="panels outside page internal external toolbars" class="ui-last-child"><a href="../panel-external-internal/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Panel external and internal</a></li>
+	</ul>
+</div></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Popup widget<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="popup widget popups dialog modal transition tooltip lightbox form overlay screen flip pop fade transition" class="ui-first-child"><a href="../popup/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Popup</a></li>
+		<li data-filtertext="popup alignment position"><a href="../popup-alignment/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Popup alignment</a></li>
+		<li data-filtertext="popup arrow size popups popover"><a href="../popup-arrow-size/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Popup arrow size</a></li>
+		<li data-filtertext="dynamic popups popup images lightbox"><a href="../popup-dynamic/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Dynamic popups</a></li>
+		<li data-filtertext="popups with iframes scaling"><a href="../popup-iframe/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Popups with iframes</a></li>
+		<li data-filtertext="popup image scaling"><a href="../popup-image-scaling/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Popup image scaling</a></li>
+		<li data-filtertext="external popup outside multi-page" class="ui-last-child"><a href="../popup-outside-multipage" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Popup outside multi-page</a></li>
+	</ul>
+</div></li>
+<li data-filtertext="form rangeslider widget dual sliders dual handle sliders range input"><a href="../rangeslider/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Rangeslider widget</a></li>
+<li data-filtertext="responsive web design rwd adaptive progressive enhancement PE accessible mobile breakpoints media query media queries"><a href="../rwd/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Responsive Web Design</a></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Selectmenu widget<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="form selectmenu widget select input custom select menu selects" class="ui-first-child"><a href="../selectmenu/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Selectmenu</a></li>
+		<li data-filtertext="form custom select menu selectmenu widget custom menu option optgroup multiple selects"><a href="../selectmenu-custom/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Custom select menu</a></li>
+		<li data-filtertext="filterable select filter popup dialog" class="ui-last-child"><a href="../selectmenu-custom-filter/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Custom select menu with filter</a></li>
+	</ul>
+</div></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Slider widget<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="form slider widget range input single sliders" class="ui-first-child"><a href="../slider/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Slider</a></li>
+		<li data-filtertext="form slider widget flipswitch slider binary select flip toggle switch"><a href="../slider-flipswitch/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Slider flip toggle switch</a></li>
+		<li data-filtertext="form slider tooltip handle value input range sliders" class="ui-last-child"><a href="../slider-tooltip/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Slider tooltip</a></li>
+	</ul>
+</div></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Table widget<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="table widget reflow column toggle th td responsive tables rwd hide show tabular" class="ui-first-child"><a href="../table-column-toggle/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Table Column Toggle</a></li>
+		<li data-filtertext="table column toggle phone comparison demo"><a href="../table-column-toggle-example/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Table Column Toggle demo</a></li>
+		<li data-filtertext="responsive tables table column toggle heading groups rwd breakpoint"><a href="../table-column-toggle-heading-groups/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Table Column Toggle heading groups</a></li>
+		<li data-filtertext="responsive tables table column toggle hide rwd breakpoint customization options"><a href="../table-column-toggle-options/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Table Column Toggle options</a></li>
+		<li data-filtertext="table reflow th td responsive rwd columns tabular"><a href="../table-reflow/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Table Reflow</a></li>
+		<li data-filtertext="responsive tables table reflow heading groups rwd breakpoint"><a href="../table-reflow-heading-groups/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Table Reflow heading groups</a></li>
+		<li data-filtertext="responsive tables table reflow stripes strokes table style"><a href="../table-reflow-stripes-strokes/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Table Reflow stripes and strokes</a></li>
+		<li data-filtertext="responsive tables table reflow stack custom styles" class="ui-last-child"><a href="../table-reflow-styling/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Table Reflow custom styles</a></li>
+	</ul>
+</div></li>
+<li data-filtertext="ui tabs widget"><a href="../tabs/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Tabs widget</a></li>
+<li data-filtertext="form textinput widget text input textarea number date time tel email file color password"><a href="../textinput/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Textinput widget</a></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Theming<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="default theme swatches theming style css" class="ui-first-child"><a href="../theme-default/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Default theme</a></li>
+		<li data-filtertext="classic theme old theme swatches theming style css" class="ui-last-child"><a href="../theme-classic/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Classic theme</a></li>
+	</ul>
+</div></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">Toolbar widget<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="toolbar widget header footer toolbars fixed fullscreen external sections" class="ui-first-child"><a href="../toolbar/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Toolbar</a></li>
+		<li data-filtertext="dynamic toolbars dynamically add toolbar header footer"><a href="../toolbar-dynamic/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Dynamic toolbars</a></li>
+		<li data-filtertext="external toolbars header footer"><a href="../toolbar-external/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">External toolbars</a></li>
+		<li data-filtertext="fixed toolbars header footer"><a href="../toolbar-fixed/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Fixed toolbars</a></li>
+		<li data-filtertext="fixed fullscreen toolbars header footer"><a href="../toolbar-fixed-fullscreen/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Fullscreen toolbars</a></li>
+		<li data-filtertext="external fixed toolbars header footer"><a href="../toolbar-fixed-external/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Fixed external toolbars</a></li>
+		<li data-filtertext="external persistent toolbars header footer navbar navmenu"><a href="../toolbar-fixed-persistent/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Persistent toolbars</a></li>
+		<li data-filtertext="external ajax optimized toolbars persistent toolbars header footer navbar"><a href="../toolbar-fixed-persistent-optimized/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">AJAX optimized toolbars</a></li>
+		<li data-filtertext="form in toolbars header footer" class="ui-last-child"><a href="../toolbar-fixed-forms/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Form in toolbar</a></li>
+	</ul>
+</div></li>
+<li data-filtertext="page transitions animated pages popup navigation flip slide fade pop"><a href="../transitions/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Transitions</a></li>
+<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed ui-li-static ui-body-inherit ui-last-child"><h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-inherit">3rd party API demos<span class="ui-collapsible-heading-status"> click to expand contents</span></a></h3><div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+	
+	<ul class="ui-listview">
+		<li data-filtertext="backbone requirejs navigation router" class="ui-first-child"><a href="../backbone-requirejs/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Backbone RequireJS</a></li>
+		<li data-filtertext="google maps geolocation demo"><a href="../map-geolocation/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Google Maps geolocation</a></li>
+		<li data-filtertext="google maps hybrid" class="ui-last-child"><a href="../map-list-toggle/" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Google Maps list toggle</a></li>
+	</ul>
+</div></li>
 
-				<!-- FOOTER -->
-				<footer class="full_width footer_block">
-					
-					<!-- CONTAINER -->
-					<div class="container">
-					
-						<!-- ROW -->
-						<div class="row" data-animated="fadeInUp">
-							
-							<div class="col-lg-7 col-md-8 col-sm-8 padbot30">
-							
-								<!-- FOOTER MENU -->
-								<ul class="foot_menu">
-									<li class="active"><a href="index.html" alt="">Home</a></li>
-									<li><a href="shortcodes.html" alt="">Features</a></li>
-									<li><a href="about.html" alt="">About</a></li>
-									<li><a href="portfolio3.html" alt="">Portfolio</a></li>
-									<li><a href="blog.html" alt="">Blog</a></li>
-									<li><a href="contacts.html" alt="">Contacts</a></li>
-								</ul><!-- FOOTER MENU -->
-								
-								<hr>
-								
-								<!-- FOOTER INFO -->
-								<ul class="foot_info">
-									<li><i class="fe icon_house"></i>2046 Lorem Ipsum Dolor Sit 20707</li>
-									<li><i class="fe icon_phone"></i>76-245-2478</li>
-									<li><i class="fe icon_mail"></i>info@ideologic.net</li>
-								</ul><!-- FOOTER INFO -->
-							</div>
-							
-							<div class="col-lg-4 col-md-4 col-sm-4 padbot30 pull-right foot_social_block">
-								<h2>Stay connected</h2>
-								<hr>
-								<div class="social">
-									<a href="javascript:void(0);" ><i class="fe social_googleplus"></i></a>
-									<a href="javascript:void(0);" ><i class="fe social_linkedin"></i></a>
-									<a href="javascript:void(0);" ><i class="fe social_facebook"></i></a>
-									<a href="javascript:void(0);" ><i class="fe social_twitter"></i></a>
-									<a href="javascript:void(0);" ><i class="fe social_vimeo"></i></a>
-									<a href="javascript:void(0);" ><i class="fe social_flickr"></i></a>
-								</div>
-							</div>
-						</div><!-- //ROW -->
-					</div><!-- //CONTAINER -->
-					
-					
-					<!-- COPYRIGHT -->
-					<div class="copyright clearfix">
-						
-						<!-- CONTAINER -->
-						<div class="container">
-							<div class="padbot20">
-								<a class="copyright_logo" href="javascript:void(0);">Character</a> <span> &copy; Copyright 2020</span>
-							</div>
-						</div><!-- //CONTAINER -->
-					</div><!-- //COPYRIGHT -->
-				</footer><!-- //FOOTER -->
-			</div><!-- //PAGE BLOCK -->
-		</div><!-- //PRELOADER HIDE -->
-	</div><!-- //PAGE -->
-</body>
-</html>
+
+
+		     </ul></div>
+		</div><!-- /panel -->
+
+
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer ui-footer ui-footer-fixed slideup ui-bar-inherit" role="contentinfo">
+		<p>jQuery Mobile Demos version <span class="jqm-version">1.4.0</span></p>
+		<p>Copyright 2013 The jQuery Foundation</p>
+	</div><!-- /footer -->
+	<!-- TODO: This should become an external panel so we can add input to markup (unique ID) -->
+    <div data-role="panel" class="jqm-search-panel ui-panel ui-panel-position-right ui-panel-display-overlay ui-panel-closed ui-body-a ui-panel-animate" data-position="right" data-display="overlay" data-theme="a">
+		<div class="ui-panel-inner"><div class="jqm-search">
+			<form class="ui-filterable"><div class="ui-input-search ui-shadow-inset ui-input-has-clear ui-body-inherit ui-corner-all"><input data-type="search" placeholder="Search demos..."><a href="#" class="ui-input-clear ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-input-clear-hidden" title="Clear text">Clear text</a></div><button type="submit" data-icon="carat-r" data-inline="true" class="ui-hidden-accessible ui-btn ui-icon-carat-r ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all" data-iconpos="notext">Submit</button><button type="submit" data-icon="carat-r" data-inline="true" class="ui-hidden-accessible ui-btn ui-icon-carat-r ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all" data-iconpos="notext">Submit</button><button type="submit" data-icon="carat-r" data-inline="true" class="ui-hidden-accessible ui-btn ui-icon-carat-r ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all" data-iconpos="notext">Submit</button><button type="submit" data-icon="carat-r" data-inline="true" class="ui-hidden-accessible ui-btn ui-icon-carat-r ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all" data-iconpos="notext">Submit</button><button type="submit" data-icon="carat-r" data-inline="true" class="ui-hidden-accessible ui-btn ui-icon-carat-r ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all" data-iconpos="notext">Submit</button><button type="submit" data-icon="carat-r" data-inline="true" class="ui-hidden-accessible ui-btn ui-icon-carat-r ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all" data-iconpos="notext">Submit</button></form><ul class="jqm-list ui-listview" data-filter-placeholder="Search demos..." data-filter-reveal="true"><li data-filtertext="demos homepage" data-icon="home" class="ui-screen-hidden"><a href=".././" class="ui-btn ui-btn-icon-right ui-icon-home">Home<span class="jqm-search-results-keywords ui-li-desc">demos homepage</span></a></li><li data-filtertext="introduction overview getting started" class="ui-screen-hidden"><a href="../intro/" data-ajax="false" class="ui-btn">Introduction<span class="jqm-search-results-keywords ui-li-desc">introduction overview getting started</span></a></li><li data-filtertext="buttons button markup buttonmarkup method anchor link button element" class="ui-screen-hidden"><a href="../button-markup/" data-ajax="false" class="ui-btn">Buttons<span class="jqm-search-results-keywords ui-li-desc">buttons button markup buttonmarkup method anchor link button element</span></a></li><li data-filtertext="form button widget input button submit reset" class="ui-screen-hidden"><a href="../button/" data-ajax="false" class="ui-btn">Button widget<span class="jqm-search-results-keywords ui-li-desc">form button widget input button submit reset</span></a></li><li data-filtertext="form checkboxradio widget checkbox input checkboxes controlgroups" class="ui-screen-hidden"><a href="../checkboxradio-checkbox/" data-ajax="false" class="ui-btn">Checkboxes<span class="jqm-search-results-keywords ui-li-desc">form checkboxradio widget checkbox input checkboxes controlgroups</span></a></li><li data-filtertext="form checkboxradio widget radio input radio buttons controlgroups" class="ui-screen-hidden"><a href="../checkboxradio-radio/" data-ajax="false" class="ui-btn">Radio buttons<span class="jqm-search-results-keywords ui-li-desc">form checkboxradio widget radio input radio buttons controlgroups</span></a></li><li data-filtertext="collapsibles content formatting" class="ui-screen-hidden"><a href="../collapsible/" data-ajax="false" class="ui-btn">Collapsible<span class="jqm-search-results-keywords ui-li-desc">collapsibles content formatting</span></a></li><li data-filtertext="dynamic collapsible set accordion append expand" class="ui-screen-hidden"><a href="../collapsible-dynamic/" data-ajax="false" class="ui-btn">Dynamic collapsibles<span class="jqm-search-results-keywords ui-li-desc">dynamic collapsible set accordion append expand</span></a></li><li data-filtertext="accordions collapsible set widget content formatting grouped collapsibles" class="ui-screen-hidden"><a href="../collapsibleset/" data-ajax="false" class="ui-btn">Collapsible set<span class="jqm-search-results-keywords ui-li-desc">accordions collapsible set widget content formatting grouped collapsibles</span></a></li><li data-filtertext="controlgroups selectmenu checkboxradio input grouped buttons horizontal vertical" class="ui-screen-hidden"><a href="../controlgroup/" data-ajax="false" class="ui-btn">Controlgroup<span class="jqm-search-results-keywords ui-li-desc">controlgroups selectmenu checkboxradio input grouped buttons horizontal vertical</span></a></li><li data-filtertext="dynamic controlgroup dynamically add buttons" class="ui-screen-hidden"><a href="../controlgroup-dynamic/" data-ajax="false" class="ui-btn">Dynamic controlgroups<span class="jqm-search-results-keywords ui-li-desc">dynamic controlgroup dynamically add buttons</span></a></li><li data-filtertext="form datepicker widget date input" class="ui-screen-hidden"><a href="../datepicker/" data-ajax="false" class="ui-btn">Datepicker<span class="jqm-search-results-keywords ui-li-desc">form datepicker widget date input</span></a></li><li data-filtertext="swipe to delete list items listviews swipe events" class="ui-screen-hidden"><a href="../swipe-list/" data-ajax="false" class="ui-btn">Swipe list items<span class="jqm-search-results-keywords ui-li-desc">swipe to delete list items listviews swipe events</span></a></li><li data-filtertext="swipe to navigate swipe page navigation swipe events" class="ui-screen-hidden"><a href="../swipe-page/" data-ajax="false" class="ui-btn">Swipe page navigation<span class="jqm-search-results-keywords ui-li-desc">swipe to navigate swipe page navigation swipe events</span></a></li><li data-filtertext="filterable filter elements sorting searching listview table" class="ui-screen-hidden"><a href="../filterable/" data-ajax="false" class="ui-btn">Filterable widget<span class="jqm-search-results-keywords ui-li-desc">filterable filter elements sorting searching listview table</span></a></li><li data-filtertext="form flipswitch widget flip toggle switch binary select checkbox input" class="ui-screen-hidden"><a href="../flipswitch/" data-ajax="false" class="ui-btn">Flipswitch widget<span class="jqm-search-results-keywords ui-li-desc">form flipswitch widget flip toggle switch binary select checkbox input</span></a></li><li data-filtertext="forms text checkbox radio range button submit reset inputs selects textarea slider flipswitch label form elements" class="ui-screen-hidden"><a href="../forms/" data-ajax="false" class="ui-btn">Forms<span class="jqm-search-results-keywords ui-li-desc">forms text checkbox radio range button submit reset inputs selects textarea slider flipswitch label form elements</span></a></li><li data-filtertext="form hide labels hidden accessible ui-hidden-accessible forms" class="ui-screen-hidden"><a href="../forms-label-hidden-accessible/" data-ajax="false" class="ui-btn">Hide labels<span class="jqm-search-results-keywords ui-li-desc">form hide labels hidden accessible ui-hidden-accessible forms</span></a></li><li data-filtertext="form field containers fieldcontain ui-field-contain forms" class="ui-screen-hidden"><a href="../forms-field-contain/" data-ajax="false" class="ui-btn">Field containers<span class="jqm-search-results-keywords ui-li-desc">form field containers fieldcontain ui-field-contain forms</span></a></li><li data-filtertext="forms disabled form elements" class="ui-screen-hidden"><a href="../forms-disabled/" data-ajax="false" class="ui-btn">Forms disabled<span class="jqm-search-results-keywords ui-li-desc">forms disabled form elements</span></a></li><li data-filtertext="forms gallery examples overview forms text checkbox radio range button submit reset inputs selects textarea slider flipswitch label form elements" class="ui-screen-hidden"><a href="../forms-gallery/" data-ajax="false" class="ui-btn">Forms gallery<span class="jqm-search-results-keywords ui-li-desc">forms gallery examples overview forms text checkbox radio range button submit reset inputs selects textarea slider flipswitch label form elements</span></a></li><li data-filtertext="grids columns blocks content formatting rwd responsive css framework" class="ui-screen-hidden"><a href="../grids/" data-ajax="false" class="ui-btn">Grids<span class="jqm-search-results-keywords ui-li-desc">grids columns blocks content formatting rwd responsive css framework</span></a></li><li data-filtertext="buttons in grids css framework" class="ui-screen-hidden"><a href="../grids-buttons/" data-ajax="false" class="ui-btn">Buttons in grids<span class="jqm-search-results-keywords ui-li-desc">buttons in grids css framework</span></a></li><li data-filtertext="custom responsive grids rwd css framework" class="ui-screen-hidden"><a href="../grids-custom-responsive/" data-ajax="false" class="ui-btn">Custom responsive grids<span class="jqm-search-results-keywords ui-li-desc">custom responsive grids rwd css framework</span></a></li><li data-filtertext="blocks content formatting sections heading" class="ui-screen-hidden"><a href="../body-bar-classes/" data-ajax="false" class="ui-btn">Grouping and dividing content<span class="jqm-search-results-keywords ui-li-desc">blocks content formatting sections heading</span></a></li><li data-filtertext="button icons svg disc alt custom icon position" class="ui-screen-hidden"><a href="../icons/" data-ajax="false" class="ui-btn">Icons<span class="jqm-search-results-keywords ui-li-desc">button icons svg disc alt custom icon position</span></a></li><li data-filtertext="" class="ui-screen-hidden"><a href="../icons-grunticon/" data-ajax="false" class="ui-btn">Grunticon loader<span class="jqm-search-results-keywords ui-li-desc"></span></a></li><li data-filtertext="listview widget thumbnails icons nested split button collapsible ul ol" class="ui-screen-hidden"><a href="../listview/" data-ajax="false" class="ui-btn">Listview<span class="jqm-search-results-keywords ui-li-desc">listview widget thumbnails icons nested split button collapsible ul ol</span></a></li><li data-filtertext="autocomplete filterable reveal listview filtertextbeforefilter placeholder" class="ui-screen-hidden"><a href="../listview-autocomplete/" data-ajax="false" class="ui-btn">Listview autocomplete<span class="jqm-search-results-keywords ui-li-desc">autocomplete filterable reveal listview filtertextbeforefilter placeholder</span></a></li><li data-filtertext="autocomplete filterable reveal listview remote data filtertextbeforefilter placeholder" class="ui-screen-hidden"><a href="../listview-autocomplete-remote/" data-ajax="false" class="ui-btn">Listview autocomplete remote data<span class="jqm-search-results-keywords ui-li-desc">autocomplete filterable reveal listview remote data filtertextbeforefilter placeholder</span></a></li><li data-filtertext="autodividers anchor jump scroll linkbars listview lists ul ol" class="ui-screen-hidden"><a href="../listview-autodividers-linkbar/" data-ajax="false" class="ui-btn">Listview autodividers linkbar<span class="jqm-search-results-keywords ui-li-desc">autodividers anchor jump scroll linkbars listview lists ul ol</span></a></li><li data-filtertext="listview autodividers selector autodividersselector lists ul ol" class="ui-screen-hidden"><a href="../listview-autodividers-selector/" data-ajax="false" class="ui-btn">Listview autodividers selector<span class="jqm-search-results-keywords ui-li-desc">listview autodividers selector autodividersselector lists ul ol</span></a></li><li data-filtertext="listview nested list items" class="ui-screen-hidden"><a href="../listview-nested-lists/" data-ajax="false" class="ui-btn">Listview Nested Listviews<span class="jqm-search-results-keywords ui-li-desc">listview nested list items</span></a></li><li data-filtertext="listview collapsible list items flat" class="ui-screen-hidden"><a href="../listview-collapsible-item-flat/" data-ajax="false" class="ui-btn">Listview collapsible list items (flat)<span class="jqm-search-results-keywords ui-li-desc">listview collapsible list items flat</span></a></li><li data-filtertext="listview collapsible list indented" class="ui-screen-hidden"><a href="../listview-collapsible-item-indented/" data-ajax="false" class="ui-btn">Listview collapsible list items (indented)<span class="jqm-search-results-keywords ui-li-desc">listview collapsible list indented</span></a></li><li data-filtertext="grid listview responsive grids responsive listviews lists ul" class="ui-screen-hidden"><a href="../listview-grid/" data-ajax="false" class="ui-btn">Listview responsive grid<span class="jqm-search-results-keywords ui-li-desc">grid listview responsive grids responsive listviews lists ul</span></a></li><li data-filtertext="loader widget page loading navigation overlay spinner" class="ui-screen-hidden"><a href="../loader/" data-ajax="false" class="ui-btn">Loader widget<span class="jqm-search-results-keywords ui-li-desc">loader widget page loading navigation overlay spinner</span></a></li><li data-filtertext="navbar widget navmenu toolbars header footer" class="ui-screen-hidden"><a href="../navbar/" data-ajax="false" class="ui-btn">Navbar widget<span class="jqm-search-results-keywords ui-li-desc">navbar widget navmenu toolbars header footer</span></a></li><li data-filtertext="ajax navigation navigate widget history event method" class="ui-screen-hidden"><a href="../navigation/" data-ajax="false" class="ui-btn">Navigation<span class="jqm-search-results-keywords ui-li-desc">ajax navigation navigate widget history event method</span></a></li><li data-filtertext="linking pages page links navigation ajax prefetch cache" class="ui-screen-hidden"><a href="../navigation-linking-pages/" data-ajax="false" class="ui-btn">Linking pages<span class="jqm-search-results-keywords ui-li-desc">linking pages page links navigation ajax prefetch cache</span></a></li><li data-filtertext="php redirect server redirection server-side navigation" class="ui-screen-hidden"><a href="../navigation-php-redirect/" data-ajax="false" class="ui-btn">PHP redirect demo<span class="jqm-search-results-keywords ui-li-desc">php redirect server redirection server-side navigation</span></a></li><li data-filtertext="pages page widget ajax navigation" class="ui-screen-hidden"><a href="../pages/" data-ajax="false" class="ui-btn">Pages<span class="jqm-search-results-keywords ui-li-desc">pages page widget ajax navigation</span></a></li><li data-filtertext="single page" class="ui-screen-hidden"><a href="../pages-single-page/" data-ajax="false" class="ui-btn">Single page<span class="jqm-search-results-keywords ui-li-desc">single page</span></a></li><li data-filtertext="multipage multi-page page" class="ui-screen-hidden"><a href="../pages-multi-page/" data-ajax="false" class="ui-btn">Multi-page template<span class="jqm-search-results-keywords ui-li-desc">multipage multi-page page</span></a></li><li data-filtertext="dialog page widget modal popup" class="ui-screen-hidden"><a href="../pages-dialog/" data-ajax="false" class="ui-btn">Dialog page<span class="jqm-search-results-keywords ui-li-desc">dialog page widget modal popup</span></a></li><li data-filtertext="panel widget sliding panels reveal push overlay responsive" class="ui-screen-hidden"><a href="../panel/" data-ajax="false" class="ui-btn">Panel<span class="jqm-search-results-keywords ui-li-desc">panel widget sliding panels reveal push overlay responsive</span></a></li><li data-filtertext="" class="ui-screen-hidden"><a href="../panel-external/" data-ajax="false" class="ui-btn">External panels<span class="jqm-search-results-keywords ui-li-desc"></span></a></li><li data-filtertext="panel " class="ui-screen-hidden"><a href="../panel-fixed/" data-ajax="false" class="ui-btn">Fixed panels<span class="jqm-search-results-keywords ui-li-desc">panel </span></a></li><li data-filtertext="panel slide panels sliding panels shadow rwd responsive breakpoint" class="ui-screen-hidden"><a href="../panel-responsive/" data-ajax="false" class="ui-btn">Panels responsive<span class="jqm-search-results-keywords ui-li-desc">panel slide panels sliding panels shadow rwd responsive breakpoint</span></a></li><li data-filtertext="panel custom style custom panel width reveal shadow listview panel styling page background wrapper" class="ui-screen-hidden"><a href="../panel-styling/" data-ajax="false" class="ui-btn">Custom panel style<span class="jqm-search-results-keywords ui-li-desc">panel custom style custom panel width reveal shadow listview panel styling page background wrapper</span></a></li><li data-filtertext="panel open on swipe" class="ui-screen-hidden"><a href="../panel-swipe-open/" data-ajax="false" class="ui-btn">Panel open on swipe<span class="jqm-search-results-keywords ui-li-desc">panel open on swipe</span></a></li><li data-filtertext="panels outside page internal external toolbars" class="ui-screen-hidden"><a href="../panel-external-internal/" data-ajax="false" class="ui-btn">Panel external and internal<span class="jqm-search-results-keywords ui-li-desc">panels outside page internal external toolbars</span></a></li><li data-filtertext="popup widget popups dialog modal transition tooltip lightbox form overlay screen flip pop fade transition" class="ui-screen-hidden"><a href="../popup/" data-ajax="false" class="ui-btn">Popup<span class="jqm-search-results-keywords ui-li-desc">popup widget popups dialog modal transition tooltip lightbox form overlay screen flip pop fade transition</span></a></li><li data-filtertext="popup alignment position" class="ui-screen-hidden"><a href="../popup-alignment/" data-ajax="false" class="ui-btn">Popup alignment<span class="jqm-search-results-keywords ui-li-desc">popup alignment position</span></a></li><li data-filtertext="popup arrow size popups popover" class="ui-screen-hidden"><a href="../popup-arrow-size/" data-ajax="false" class="ui-btn">Popup arrow size<span class="jqm-search-results-keywords ui-li-desc">popup arrow size popups popover</span></a></li><li data-filtertext="dynamic popups popup images lightbox" class="ui-screen-hidden"><a href="../popup-dynamic/" data-ajax="false" class="ui-btn">Dynamic popups<span class="jqm-search-results-keywords ui-li-desc">dynamic popups popup images lightbox</span></a></li><li data-filtertext="popups with iframes scaling" class="ui-screen-hidden"><a href="../popup-iframe/" data-ajax="false" class="ui-btn">Popups with iframes<span class="jqm-search-results-keywords ui-li-desc">popups with iframes scaling</span></a></li><li data-filtertext="popup image scaling" class="ui-screen-hidden"><a href="../popup-image-scaling/" data-ajax="false" class="ui-btn">Popup image scaling<span class="jqm-search-results-keywords ui-li-desc">popup image scaling</span></a></li><li data-filtertext="external popup outside multi-page" class="ui-screen-hidden"><a href="../popup-outside-multipage" data-ajax="false" class="ui-btn">Popup outside multi-page<span class="jqm-search-results-keywords ui-li-desc">external popup outside multi-page</span></a></li><li data-filtertext="form rangeslider widget dual sliders dual handle sliders range input" class="ui-screen-hidden"><a href="../rangeslider/" data-ajax="false" class="ui-btn">Rangeslider widget<span class="jqm-search-results-keywords ui-li-desc">form rangeslider widget dual sliders dual handle sliders range input</span></a></li><li data-filtertext="responsive web design rwd adaptive progressive enhancement PE accessible mobile breakpoints media query media queries" class="ui-screen-hidden"><a href="../rwd/" data-ajax="false" class="ui-btn">Responsive Web Design<span class="jqm-search-results-keywords ui-li-desc">responsive web design rwd adaptive progressive enhancement PE accessible mobile breakpoints media query media queries</span></a></li><li data-filtertext="form selectmenu widget select input custom select menu selects" class="ui-screen-hidden"><a href="../selectmenu/" data-ajax="false" class="ui-btn">Selectmenu<span class="jqm-search-results-keywords ui-li-desc">form selectmenu widget select input custom select menu selects</span></a></li><li data-filtertext="form custom select menu selectmenu widget custom menu option optgroup multiple selects" class="ui-screen-hidden"><a href="../selectmenu-custom/" data-ajax="false" class="ui-btn">Custom select menu<span class="jqm-search-results-keywords ui-li-desc">form custom select menu selectmenu widget custom menu option optgroup multiple selects</span></a></li><li data-filtertext="filterable select filter popup dialog" class="ui-screen-hidden"><a href="../selectmenu-custom-filter/" data-ajax="false" class="ui-btn">Custom select menu with filter<span class="jqm-search-results-keywords ui-li-desc">filterable select filter popup dialog</span></a></li><li data-filtertext="form slider widget range input single sliders" class="ui-screen-hidden"><a href="../slider/" data-ajax="false" class="ui-btn">Slider<span class="jqm-search-results-keywords ui-li-desc">form slider widget range input single sliders</span></a></li><li data-filtertext="form slider widget flipswitch slider binary select flip toggle switch" class="ui-screen-hidden"><a href="../slider-flipswitch/" data-ajax="false" class="ui-btn">Slider flip toggle switch<span class="jqm-search-results-keywords ui-li-desc">form slider widget flipswitch slider binary select flip toggle switch</span></a></li><li data-filtertext="form slider tooltip handle value input range sliders" class="ui-screen-hidden"><a href="../slider-tooltip/" data-ajax="false" class="ui-btn">Slider tooltip<span class="jqm-search-results-keywords ui-li-desc">form slider tooltip handle value input range sliders</span></a></li><li data-filtertext="table widget reflow column toggle th td responsive tables rwd hide show tabular" class="ui-screen-hidden"><a href="../table-column-toggle/" data-ajax="false" class="ui-btn">Table Column Toggle<span class="jqm-search-results-keywords ui-li-desc">table widget reflow column toggle th td responsive tables rwd hide show tabular</span></a></li><li data-filtertext="table column toggle phone comparison demo" class="ui-screen-hidden"><a href="../table-column-toggle-example/" data-ajax="false" class="ui-btn">Table Column Toggle demo<span class="jqm-search-results-keywords ui-li-desc">table column toggle phone comparison demo</span></a></li><li data-filtertext="responsive tables table column toggle heading groups rwd breakpoint" class="ui-screen-hidden"><a href="../table-column-toggle-heading-groups/" data-ajax="false" class="ui-btn">Table Column Toggle heading groups<span class="jqm-search-results-keywords ui-li-desc">responsive tables table column toggle heading groups rwd breakpoint</span></a></li><li data-filtertext="responsive tables table column toggle hide rwd breakpoint customization options" class="ui-screen-hidden"><a href="../table-column-toggle-options/" data-ajax="false" class="ui-btn">Table Column Toggle options<span class="jqm-search-results-keywords ui-li-desc">responsive tables table column toggle hide rwd breakpoint customization options</span></a></li><li data-filtertext="table reflow th td responsive rwd columns tabular" class="ui-screen-hidden"><a href="../table-reflow/" data-ajax="false" class="ui-btn">Table Reflow<span class="jqm-search-results-keywords ui-li-desc">table reflow th td responsive rwd columns tabular</span></a></li><li data-filtertext="responsive tables table reflow heading groups rwd breakpoint" class="ui-screen-hidden"><a href="../table-reflow-heading-groups/" data-ajax="false" class="ui-btn">Table Reflow heading groups<span class="jqm-search-results-keywords ui-li-desc">responsive tables table reflow heading groups rwd breakpoint</span></a></li><li data-filtertext="responsive tables table reflow stripes strokes table style" class="ui-screen-hidden"><a href="../table-reflow-stripes-strokes/" data-ajax="false" class="ui-btn">Table Reflow stripes and strokes<span class="jqm-search-results-keywords ui-li-desc">responsive tables table reflow stripes strokes table style</span></a></li><li data-filtertext="responsive tables table reflow stack custom styles" class="ui-screen-hidden"><a href="../table-reflow-styling/" data-ajax="false" class="ui-btn">Table Reflow custom styles<span class="jqm-search-results-keywords ui-li-desc">responsive tables table reflow stack custom styles</span></a></li><li data-filtertext="ui tabs widget" class="ui-screen-hidden"><a href="../tabs/" data-ajax="false" class="ui-btn">Tabs widget<span class="jqm-search-results-keywords ui-li-desc">ui tabs widget</span></a></li><li data-filtertext="form textinput widget text input textarea number date time tel email file color password" class="ui-screen-hidden"><a href="../textinput/" data-ajax="false" class="ui-btn">Textinput widget<span class="jqm-search-results-keywords ui-li-desc">form textinput widget text input textarea number date time tel email file color password</span></a></li><li data-filtertext="default theme swatches theming style css" class="ui-screen-hidden"><a href="../theme-default/" data-ajax="false" class="ui-btn">Default theme<span class="jqm-search-results-keywords ui-li-desc">default theme swatches theming style css</span></a></li><li data-filtertext="classic theme old theme swatches theming style css" class="ui-screen-hidden"><a href="../theme-classic/" data-ajax="false" class="ui-btn">Classic theme<span class="jqm-search-results-keywords ui-li-desc">classic theme old theme swatches theming style css</span></a></li><li data-filtertext="toolbar widget header footer toolbars fixed fullscreen external sections" class="ui-screen-hidden"><a href="../toolbar/" data-ajax="false" class="ui-btn">Toolbar<span class="jqm-search-results-keywords ui-li-desc">toolbar widget header footer toolbars fixed fullscreen external sections</span></a></li><li data-filtertext="dynamic toolbars dynamically add toolbar header footer" class="ui-screen-hidden"><a href="../toolbar-dynamic/" data-ajax="false" class="ui-btn">Dynamic toolbars<span class="jqm-search-results-keywords ui-li-desc">dynamic toolbars dynamically add toolbar header footer</span></a></li><li data-filtertext="external toolbars header footer" class="ui-screen-hidden"><a href="../toolbar-external/" data-ajax="false" class="ui-btn">External toolbars<span class="jqm-search-results-keywords ui-li-desc">external toolbars header footer</span></a></li><li data-filtertext="fixed toolbars header footer" class="ui-screen-hidden"><a href="../toolbar-fixed/" data-ajax="false" class="ui-btn">Fixed toolbars<span class="jqm-search-results-keywords ui-li-desc">fixed toolbars header footer</span></a></li><li data-filtertext="fixed fullscreen toolbars header footer" class="ui-screen-hidden"><a href="../toolbar-fixed-fullscreen/" data-ajax="false" class="ui-btn">Fullscreen toolbars<span class="jqm-search-results-keywords ui-li-desc">fixed fullscreen toolbars header footer</span></a></li><li data-filtertext="external fixed toolbars header footer" class="ui-screen-hidden"><a href="../toolbar-fixed-external/" data-ajax="false" class="ui-btn">Fixed external toolbars<span class="jqm-search-results-keywords ui-li-desc">external fixed toolbars header footer</span></a></li><li data-filtertext="external persistent toolbars header footer navbar navmenu" class="ui-screen-hidden"><a href="../toolbar-fixed-persistent/" data-ajax="false" class="ui-btn">Persistent toolbars<span class="jqm-search-results-keywords ui-li-desc">external persistent toolbars header footer navbar navmenu</span></a></li><li data-filtertext="external ajax optimized toolbars persistent toolbars header footer navbar" class="ui-screen-hidden"><a href="../toolbar-fixed-persistent-optimized/" data-ajax="false" class="ui-btn">AJAX optimized toolbars<span class="jqm-search-results-keywords ui-li-desc">external ajax optimized toolbars persistent toolbars header footer navbar</span></a></li><li data-filtertext="form in toolbars header footer" class="ui-screen-hidden"><a href="../toolbar-fixed-forms/" data-ajax="false" class="ui-btn">Form in toolbar<span class="jqm-search-results-keywords ui-li-desc">form in toolbars header footer</span></a></li><li data-filtertext="page transitions animated pages popup navigation flip slide fade pop" class="ui-screen-hidden"><a href="../transitions/" data-ajax="false" class="ui-btn">Transitions<span class="jqm-search-results-keywords ui-li-desc">page transitions animated pages popup navigation flip slide fade pop</span></a></li><li data-filtertext="backbone requirejs navigation router" class="ui-screen-hidden"><a href="../backbone-requirejs/" data-ajax="false" class="ui-btn">Backbone RequireJS<span class="jqm-search-results-keywords ui-li-desc">backbone requirejs navigation router</span></a></li><li data-filtertext="google maps geolocation demo" class="ui-screen-hidden"><a href="../map-geolocation/" data-ajax="false" class="ui-btn">Google Maps geolocation<span class="jqm-search-results-keywords ui-li-desc">google maps geolocation demo</span></a></li><li data-filtertext="google maps hybrid" class="ui-screen-hidden"><a href="../map-list-toggle/" data-ajax="false" class="ui-btn">Google Maps list toggle<span class="jqm-search-results-keywords ui-li-desc">google maps hybrid</span></a></li></ul>
+		</div></div>
+	</div><!-- /panel -->
+
+
+</div><!-- /page -->
+
+
+
+<div class="ui-panel-dismiss" data-panelid="null"></div><div class="ui-panel-dismiss" data-panelid="null"></div><div class="ui-panel-dismiss" data-panelid="null"></div><div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon-loading"></span><h1>loading</h1></div><div data-role="page" data-dialog="true" data-url="/1.4.0/pages-dialog/dialog.html" data-external-page="true" tabindex="0" class="ui-page ui-page-theme-a ui-dialog ui-page-active" style="min-height: 401px;"><div role="dialog" class="ui-dialog-contain ui-overlay-shadow ui-corner-all">
+
+		<div data-role="header" data-theme="b" role="banner" class="ui-header ui-bar-b"><a href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-left" data-rel="back">Close</a>
+		<h1 class="ui-title" role="heading" aria-level="1">Dialog</h1>
+		</div>
+
+		<div role="main" class="ui-content">
+		<h1>Delete page?</h1>
+		<p>This is a regular page, styled as a dialog. To create a dialog, just link to a normal page and include a transition and <code>data-rel="dialog"</code> attribute.</p>
+			<a href="dialog/index.html" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Sounds good</a>
+			<a href="dialog/index.html" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Cancel</a>
+		</div>
+	</div></div></body></html>

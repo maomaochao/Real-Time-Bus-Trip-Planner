@@ -23,11 +23,11 @@
 </head>
 <body>
 
-	<div data-role="page">
+	<div data-role="page" data-theme="b">
 
 		<div data-role="header">
 		<a href="welcome.do" class="ui-btn ui-icon-home ui-btn-icon-left"
-				data-rel="back">Home</a>
+				>Home</a>
 			<a href="#" class="ui-btn ui-icon-home ui-btn-icon-left"
 				data-rel="back">Back</a>
 			<h1>Bus Trip Planner</h1>
@@ -48,7 +48,7 @@
 								<h2 style="float:left">${yelp.name}</h2>
 								
 								
-								<h2 style="float:right">15min</h2>
+								<h2 style="float:right">${yelp.time} minutes</h2>
 		                       
 								</div>
 								 <div style="clear:both"> </div>
@@ -56,7 +56,6 @@
 								<p style="float:left">${yelp.address}</p>
 								 <div style="clear:both"> </div>
 							  
-								<p style="float:left">5:06 PM from Forbes Ave at Morewood Ave FS (Carnegie Mellon)</p>
 
 
 						</a></li>

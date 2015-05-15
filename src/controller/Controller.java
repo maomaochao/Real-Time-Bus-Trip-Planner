@@ -50,7 +50,7 @@ public class Controller extends HttpServlet{
         String      servletPath = req.getServletPath();
 
         String      action = getActionName(servletPath);
-         System.out.println("action:  ++ "+action);
+       //  System.out.println("action:  ++ "+action);
         if (action.equals("register.do") || action.equals("login.do")) {
         	// Allow these actions without logging in
 			return Action.perform(action,req);

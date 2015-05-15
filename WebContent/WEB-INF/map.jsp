@@ -22,7 +22,7 @@
 
 
 <body>
-<div data-role="page" id="map">
+<div data-role="page" id="map" data-theme="b">
 <header data-role="header">
   <a href="welcome.do" data-icon="home" data-icon-iconpos="notext">Home</a>
   <h1>Map</h1>

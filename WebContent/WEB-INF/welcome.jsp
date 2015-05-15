@@ -5,7 +5,7 @@
 <head>
 
 	<meta charset = "utf-8" />
-	<title>List App</title>
+	<title>Real-time Bus Planner</title>
 	
   <!-- Include jQuery Mobile stylesheets -->
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
@@ -42,7 +42,9 @@
 		});
   });
 
-
+	function addFav() {
+		alert("Succeess");
+	}
       
     function calcRoute() {
     	
@@ -225,7 +227,7 @@ function getCoordinates() {
 </head>
 
 <body>
-<div data-role="page" id="main">
+<div data-role="page" data-theme="b" id="main">
 <header data-role="header">
 <table>
 <tr>
@@ -258,14 +260,13 @@ function getCoordinates() {
 <article data-role="content">
 
 <div data-role="header" data-theme="g">
-    <p> Please choose from saved routes:</p>
+    <p>Choose A Saved Route:</p>
   
   </div>
 
   <!-- <button class="ui-btn" onclick="getCoordinates()">Get Current Location</button> -->
 <form method="post" action="#">
   <fieldset data-role="fieldcontain">
-        <label for="route">Favorite Route:</label>
         <select name="route" id="route">
          <option value="route1">61A to School</option>
          <option value="route2">61C to home</option>
@@ -279,7 +280,7 @@ function getCoordinates() {
       <table data-role="table" class="ui-responsive" id="favorites">
       <thead>
         <tr>
-          <th>RouteName</th>
+          <!-- <th>Route Name</th> -->
           <th>From</th>
           <th>To</th>
           <th>Next Arrival</th>
@@ -288,8 +289,8 @@ function getCoordinates() {
       </thead>
       <tbody>
         <tr>
-          <td>61A to school</td>
-          <td>4742 Centre Avenue</td>
+<!--           <td>61A to school</td>
+ -->          <td>4742 Centre Avenue</td>
           <td>CMU</td>
           <td>2:55 PM @ Forbes Ave at Shady Ave</td>
           
@@ -297,8 +298,16 @@ function getCoordinates() {
         </tr>
       </tbody>
     </table>
+    <label for="switch">Alarm: </label>
+      <select name="switch" id="switch" data-role="slider">
+        <option value="on">Off</option>
+        <option value="off" selected>On</option>
+      </select>
+    
+  
+  
       <div data-role="header" data-theme="g">
-    <p> Or search for any routes:</p>
+    <p>Plan A New Trip:</p>
   
   </div>
       <div data-role="fieldcontain">
@@ -310,9 +319,26 @@ function getCoordinates() {
       </div>
 </form>
 <div align="center">
+
 <button data-inline="true" onclick="calcRoute()">Search</button>
 <button  data-inline="true"><a href="addFavorite.do?departure=${from}&arrival=${to}">Add to Favorite</a></button>
-</div>
+
+
+    <div data-role="popup" id="myPopupDialog1">
+      <div data-role="header">
+        <h1>Success!</h1>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <h2>Added to my favorites</h2>
+        <p></p>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
+      </div>
+      <div data-role="footer">
+        <h1></h1>
+      </div>
+      </div></div>
+
 <br>
      
 
