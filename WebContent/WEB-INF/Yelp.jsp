@@ -23,7 +23,7 @@
 </head>
 <body>
 
-	<div data-role="page">
+	<div data-role="page" data-theme="b">
 
 		<div data-role="header">
 		<a href="welcome.do" class="ui-btn ui-icon-home ui-btn-icon-left"

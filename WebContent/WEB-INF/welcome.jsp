@@ -227,7 +227,7 @@ function getCoordinates() {
 </head>
 
 <body>
-<div data-role="page" id="main">
+<div data-role="page" data-theme="b" id="main">
 <header data-role="header">
 <table>
 <tr>
@@ -260,14 +260,13 @@ function getCoordinates() {
 <article data-role="content">
 
 <div data-role="header" data-theme="g">
-    <p> Please choose from saved routes:</p>
+    <p>Choose A Saved Route:</p>
   
   </div>
 
   <!-- <button class="ui-btn" onclick="getCoordinates()">Get Current Location</button> -->
 <form method="post" action="#">
   <fieldset data-role="fieldcontain">
-        <label for="route">Favorite Route:</label>
         <select name="route" id="route">
          <option value="route1">61A to School</option>
          <option value="route2">61C to home</option>
@@ -299,26 +298,16 @@ function getCoordinates() {
         </tr>
       </tbody>
     </table>
-    <a href="#myPopupDialog" data-rel="popup" data-position-to="window" data-transition="fade" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Notify Me</a>
+    <label for="switch">Alarm: </label>
+      <select name="switch" id="switch" data-role="slider">
+        <option value="on">On</option>
+        <option value="off" selected>Off</option>
+      </select>
     
-    <div data-role="popup" id="myPopupDialog">
-      <div data-role="header">
-        <h1>Success</h1>
-      </div>
-
-      <div data-role="main" class="ui-content">
-        <h2>Notification added!</h2>
-        <p></p>
-        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
-      </div>
-      <div data-role="footer">
-        <h1></h1>
-      </div>
-      </div>
   
   
       <div data-role="header" data-theme="g">
-    <p> Or search for any routes:</p>
+    <p>Plan A New Trip:</p>
   
   </div>
       <div data-role="fieldcontain">
@@ -330,8 +319,8 @@ function getCoordinates() {
       </div>
 </form>
 <div align="center">
-<button data-inline="true" onclick="calcRoute()">Search</button>
-<a href="#myPopupDialog1" data-rel="popup" data-position-to="window" data-transition="fade" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Add Favorite</a>
+<button data-inline="true" onclick="calcRoute()" data-icon="search" >Search</button>
+<a href="#myPopupDialog1" data-rel="popup" data-position-to="window" data-transition="fade" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-star ui-btn-icon-left">Add Favorite</a>
     
     <div data-role="popup" id="myPopupDialog1">
       <div data-role="header">
