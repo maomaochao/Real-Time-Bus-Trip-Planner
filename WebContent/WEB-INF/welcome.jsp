@@ -42,7 +42,9 @@
 		});
   });
 
-
+	function addFav() {
+		alert("Succeess");
+	}
       
     function calcRoute() {
     	
@@ -297,6 +299,24 @@ function getCoordinates() {
         </tr>
       </tbody>
     </table>
+    <a href="#myPopupDialog" data-rel="popup" data-position-to="window" data-transition="fade" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Notify Me</a>
+    
+    <div data-role="popup" id="myPopupDialog">
+      <div data-role="header">
+        <h1>Success</h1>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <h2>Notification added!</h2>
+        <p></p>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
+      </div>
+      <div data-role="footer">
+        <h1></h1>
+      </div>
+      </div>
+  
+  
       <div data-role="header" data-theme="g">
     <p> Or search for any routes:</p>
   
@@ -311,8 +331,22 @@ function getCoordinates() {
 </form>
 <div align="center">
 <button data-inline="true" onclick="calcRoute()">Search</button>
-<button  data-inline="true" onclick="calcRoute()">Add to Favorite</button>
-</div>
+<a href="#myPopupDialog1" data-rel="popup" data-position-to="window" data-transition="fade" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">Add Favorite</a>
+    
+    <div data-role="popup" id="myPopupDialog1">
+      <div data-role="header">
+        <h1>Success!</h1>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <h2>Added to my favorites</h2>
+        <p></p>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
+      </div>
+      <div data-role="footer">
+        <h1></h1>
+      </div>
+      </div></div>
 <br>
      
 
